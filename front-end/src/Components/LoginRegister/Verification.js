@@ -12,6 +12,7 @@ const Verification = () => {
     const onSubmit = (event) => {
         event.preventDefault();
         var secondsElapsed = Math.floor(Date.now()/1000) - parseInt((location.state.user.verCode).substr(5,), 36);
+        console.log(location.state.user)
         if(secondsElapsed<(60*5))
         {
             if(location.state.user.verCode == verificationCode)

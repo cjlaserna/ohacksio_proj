@@ -15,13 +15,13 @@ const Login = (props) => {
     const registerUser = (event) =>{
         event.preventDefault();
         console.log("Register")
-        
         axios.post("http://localhost:3001/register", {
             username: name,
             password:password,
             email: email,
         })
         .then(response => {
+            console.log("failed 2")
             if(response.data==0)
             {
                 history.push("/registration-failed")
