@@ -1,3 +1,4 @@
+import axios from "axios"
 import { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 const Login = (props) => {
@@ -13,7 +14,22 @@ const Login = (props) => {
 
     const registerUser = (event) =>{
         event.preventDefault();
-        console.log("Register")    
+        console.log("Register")
+        
+        axios.post("http://localhost:3001/register", {
+            username: name,
+            password:password,
+            email: email,
+        })
+        .then(response => {
+            if(response.data==0)
+            {
+                history.push("/registration-failed")
+            }
+            else{
+                history.push({pathname: "/Verify", state: response.data})
+            }
+        });
     };
 
     return (
