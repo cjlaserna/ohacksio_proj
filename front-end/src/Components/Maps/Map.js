@@ -32,8 +32,8 @@ const positionOptions = {enableHighAccuracy: true};
 
 const Map = () => {
   const [viewport, setViewport] = useState({
-    latitude: 37.8,
-    longitude: 96,
+    latitude: 0,
+    longitude: 0,
     zoom: 3,
     bearing: 0,
     pitch: 0,
@@ -48,7 +48,7 @@ const Map = () => {
       mapboxApiAccessToken={MAPBOX_TOKEN}
       onViewportChange={setViewport}
     >
-    <GeolocateControl style={geolocateStyle} positionOptions={positionOptions} trackUserLocation auto={true}/>
+    <GeolocateControl style={geolocateStyle} positionOptions={positionOptions} trackUserLocation auto/>
     <FullscreenControl style={fullscreenControlStyle} />
     <NavigationControl style={navStyle} />
     <ScaleControl style={scaleControlStyle} />
