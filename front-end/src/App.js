@@ -1,4 +1,8 @@
 import { BrowserRouter as Router, Route, useParams } from 'react-router-dom'
+import Login from './Components/LoginRegister/Login';
+import Register from './Components/LoginRegister/Register'
+import LoginError from './Components/LoginRegister/LoginError';
+import RegisterError from './Components/LoginRegister/RegisterError'
 
 function App() {
   return (
@@ -9,19 +13,19 @@ function App() {
     </Route>
 
     <Route exact path="/login">
-      <h1>Login</h1>
+      <Login/>
     </Route>
 
     <Route exact path="/registration">
-      <h1>Registration</h1>
+      <Register/>
     </Route>
 
     <Route exact path="/login-failed">
-      <h1>Login Failed</h1>
+      <LoginError/>
     </Route>
 
     <Route exact path="/registration-failed">
-      <h1>Registration Failed</h1>
+      <RegisterError/>
     </Route>
   
   </Router>

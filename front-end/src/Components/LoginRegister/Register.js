@@ -1,7 +1,5 @@
-import axios from "axios"
 import { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
-import "./Register.css"
 const Login = (props) => {
     
     //States
@@ -46,9 +44,6 @@ const Login = (props) => {
                     </div>
                 </div>
                 <div className="rightSideRegister">
-                    <div className="imageRegisterContainer">
-                        <p>Logo Here</p>
-                    </div>
                 </div>
             </div>
         </div>

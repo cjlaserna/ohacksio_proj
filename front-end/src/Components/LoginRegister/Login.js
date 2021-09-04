@@ -1,7 +1,5 @@
-import axios from "axios"
 import { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
-import "./Login.css";
 
 const Login = () => {
     //States
@@ -38,9 +36,6 @@ const Login = () => {
                     </div>
                 </div>
                 <div className="rightSideLogin">
-                    <div className="imageLoginContainer">
-                        <p>Logo Here</p>
-                    </div>
                 </div>
             </div>
         </div>
