@@ -31,7 +31,7 @@ const Login = () => {
                         
                     </form>
                     <div className="redirectToRegisterLogin">
-                        Don't have an account already? 
+                        Don't have an account? 
                         <a className="loginHereRedirectButton" href="/registration"> Register here  </a>
                     </div>
                 </div>
