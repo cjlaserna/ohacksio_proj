@@ -3,6 +3,7 @@ import Login from './Components/LoginRegister/Login';
 import Register from './Components/LoginRegister/Register'
 import LoginError from './Components/LoginRegister/LoginError';
 import RegisterError from './Components/LoginRegister/RegisterError'
+import Verification from './Components/LoginRegister/Verification';
 
 function App() {
   return (
@@ -26,6 +27,10 @@ function App() {
 
     <Route exact path="/registration-failed">
       <RegisterError/>
+    </Route>
+
+    <Route exact path="/verify">
+      <Verification/>
     </Route>
   
   </Router>
