@@ -8,7 +8,7 @@ import MenuBar from './Components/MenuBar';
 import GoogleMap from './Components/Maps/GoogleMap';
 import Map_Page from './Components/Maps/Map_Page';
 
-import Errands from './Components/Errands.js';
+import Errands from './Components/UserPages/Errands/Errands.js';
 
 function App() {
   return (
