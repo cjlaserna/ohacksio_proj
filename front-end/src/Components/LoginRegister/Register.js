@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
+import Image1 from '../../Assets/image1.svg';
+
 const Login = (props) => {
     
     //States
@@ -17,33 +19,39 @@ const Login = (props) => {
     };
 
     return (
-        <div className="wholeRegisterPage">
-            <div className="title-container-register">
-                <div className="titleRegister">Welcome! Please register to gain access to our services</div>
+        <div className = "login">
+            <div className = "login-navbar">
+                <div className = "login-navbar-left">
+                    <img />
+                </div>
+                <div className = "login-navbar-right">
+                    <button className = "button-unclicked">Home</button>
+                    <button className = "button-unclicked">Login</button>
+                    <button className = "button-clicked">Register</button>
+                </div>
             </div>
-            <div className='middleRegister'>
-                <div className="leftSideRegister">
-                    <form className='add-form' onSubmit={registerUser}>
-                        <div className="name-fieldRegister">
-                            <label className="nameRegister">Name: </label>
-                            <input className="name-enterRegister" type='text' placeholder = 'Add full name' value={name} onChange={(e) => setName(e.target.value)}/>
-                        </div>
-                        <div className='email-fieldRegister'>
-                            <label className="emailRegister">Email: </label>
-                            <input className="email-enterRegister" type='email' placeholder = 'Add email' value={email} onChange={(e) => setEmail(e.target.value)}/>
-                        </div>
-                        <div className='password-fieldRegister'>
-                            <label className="passwordRegister">Password: </label>
-                            <input className="password-enterRegister" type='password' placeholder = 'Add password' value={password} onChange={(e) => setPassword(e.target.value)}/>
-                        </div>
-                        <div className="registerSubmitRegister"><input type = 'submit' value =  'REGISTER' className='registerButtonRegister'></input></div>
-                    </form>
-                    <div className="redirectToLoginRegister">
-                        Have an account already? 
-                        <a className="registerHereRedirectButton" href="/login"> Login here  </a>
+            <div className = "main-login-content">
+                <div className = "main-login-content-inner">
+                    <div className = "login-left">
+                        <form className = "login-form" onSubmit={registerUser}>
+                            <h1 className = "login-title">Register</h1>
+                            <input className = "login-element" type='text' placeholder = 'Add full name' value={name} onChange={(e) => setName(e.target.value)}/>
+                            <input className = "login-element" type='email' placeholder = 'Add email' value={email} onChange={(e) => setEmail(e.target.value)}/>
+                            <input className = "login-element" type='password' placeholder = 'Add password' value={password} onChange={(e) => setPassword(e.target.value)}/>
+                            <div className = "login-misc">
+                                <div className = "login-misc-4">
+                                    <a className = "login-misc-1">Already have an account?  </a>
+                                    <a className = "login-misc-2">Click Here</a>
+                                </div>
+                                <input className = "login-misc-3" type = 'submit' value =  'REGISTER'></input>
+                            </div>
+                        </form>
+                    </div>
+                    <div className = "login-right">
+                        <img src = {Image1} />
                     </div>
                 </div>
-                <div className="rightSideRegister">
+                <div>
                 </div>
             </div>
         </div>
