@@ -4,6 +4,7 @@ import Register from './Components/LoginRegister/Register'
 import LoginError from './Components/LoginRegister/LoginError';
 import RegisterError from './Components/LoginRegister/RegisterError'
 import Verification from './Components/LoginRegister/Verification';
+import ErrandCreate from './Components/ErrandCreationPage/ErrandCreate';
 
 function App() {
   return (
@@ -11,6 +12,10 @@ function App() {
   
     <Route exact path="/">
       <h1>Dashboard</h1>
+    </Route>
+
+    <Route exact path="/add-errand">
+      <ErrandCreate/>
     </Route>
 
     <Route exact path="/login">
