@@ -1,4 +1,4 @@
-import React, {useState, useCallback} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import {render} from 'react-dom';
 import MapGL, {GeolocateControl, NavigationControl, FullscreenControl, ScaleControl, Source, Layer} from 'react-map-gl';
 import directionsToGeoJson from 'directions-to-geojson'
@@ -7,11 +7,6 @@ import { accessToken } from 'mapbox-gl';
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiYXJ5YW5vdmFsZWthciIsImEiOiJja3Q2Y2w0bTYwaDJwMm5vMHh0NHJydnUwIn0.jBc3OwM4kr5hJCRv9ubQgQ'; // Set your mapbox token here
 
 const coordinates = [-122.42,37.78,-77.03,38.91]
-
-const query = fetch(
-  `https://api.mapbox.com/directions/v5/mapbox/cycling/-122.42,37.78;-77.03,38.91?access_token=pk.eyJ1IjoiYXJ5YW5vdmFsZWthciIsImEiOiJja3Q2Y2w0bTYwaDJwMm5vMHh0NHJydnUwIn0.jBc3OwM4kr5hJCRv9ubQgQ`,
-  { method: 'GET' }
-);
 
 const geolocateStyle = {
   top: 0,
@@ -50,11 +45,23 @@ const Map = () => {
     height:"100vh"
   });
 
+  const [query, setQuery] = useState(0);
+
+  const getquery = () => fetch(
+    `https://api.mapbox.com/directions/v5/mapbox/cycling/-122.42,37.78;-77.03,38.91?access_token=pk.eyJ1IjoiYXJ5YW5vdmFsZWthciIsImEiOiJja3Q2Y2w0bTYwaDJwMm5vMHh0NHJydnUwIn0.jBc3OwM4kr5hJCRv9ubQgQ`,
+    { method: 'GET' }
+  );
+
   const onMapLoad = useCallback(evt => {
+    setQuery(getquery())
     console.log(query)
     const map = evt.target;
     map.setTerrain({source: 'mapbox-dem', exaggeration: 1.5});
   }, []);
+
+  useEffect(() => {
+    console.log(query)
+  }, [query])
 
   return (
     <MapGL
