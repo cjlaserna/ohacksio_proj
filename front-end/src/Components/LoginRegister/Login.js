@@ -51,7 +51,7 @@ const Login = () => {
                             <div className = "login-misc">
                                 <div className = "login-misc-4">
                                     <a className = "login-misc-1">Don't have an account?  </a>
-                                    <a className = "login-misc-2">Register Here</a>
+                                    <a href="/registration" className = "login-misc-2" >Register Here</a>
                                 </div>
                                 <input className = "login-misc-3" type = 'submit' value =  'LOGIN'></input>
                             </div>

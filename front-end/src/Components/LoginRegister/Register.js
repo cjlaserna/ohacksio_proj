@@ -57,7 +57,7 @@ const Login = (props) => {
                             <div className = "login-misc">
                                 <div className = "login-misc-4">
                                     <a className = "login-misc-1">Already have an account?  </a>
-                                    <a className = "login-misc-2">Click Here</a>
+                                    <a href="/login" className = "login-misc-2">Click Here</a>
                                 </div>
                                 <input className = "login-misc-3" type = 'submit' value =  'REGISTER'></input>
                             </div>
