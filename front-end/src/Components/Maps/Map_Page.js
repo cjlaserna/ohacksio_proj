@@ -6,13 +6,13 @@ import Errand_Time from './Errand_Time.js'
 
 const Map_Page = () => {
 
-    const registerUser = (event) =>{
+    const userIDtoRunObject = (event) =>{
         event.preventDefault();
-        axios.post("http://localhost:3001/insert", {
-            createdBy: ,//PUT CREATEDBY VARIABLE
-            run: //PUT RUN OBJECT
+        axios.post("http://localhost:3001/runID", {
+            _id: //put user id
         })
         .then(response => {
+            //response is run object
         });
     };
 
