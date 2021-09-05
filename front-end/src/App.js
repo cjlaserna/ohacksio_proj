@@ -5,6 +5,7 @@ import LoginError from './Components/LoginRegister/LoginError';
 import RegisterError from './Components/LoginRegister/RegisterError'
 import Map from './Components/Maps/Map';
 import Verification from './Components/LoginRegister/Verification';
+import GoogleMap from './Components/Maps/GoogleMap';
 
 
 function App() {
@@ -33,6 +34,8 @@ function App() {
 
     <Route exact path="/map">
       <Map/>
+    </Route>
+
     <Route exact path="/verify">
       <Verification/>
 
