@@ -1,3 +1,4 @@
+import axios from "axios"
 import { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 
@@ -9,7 +10,22 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const loginUser = (event) =>{
         event.preventDefault();
-        console.log("Login")
+        axios.post("http://localhost:3001/login", {
+            password:password,
+            email: email,
+        })
+        .then(response => {
+           if(response.data.length==0)
+           {
+
+            history.push("/login-failed")
+                
+           }
+           else{
+            const id = response.data.shift();
+            window.localStorage.setItem('token', id._id);
+            history.push("/main-page")
+           }});
     };
     return (
         <div className="wholeLoginPage">
