@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
+/* logo */
+.Nav img{
+    height: 100%;
+}
+
+#logo {
+    position: fixed;
+    height: 4em;
+    width: 11em;
+    top: .5em;
+    left: 1em;
+}
+
+/* Nav Expanded */
+.Nav {
+    display: block;
+    background-color: white;
+    height: 6em;
+}
+
+a, li{
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.2em 0.3em;
+    margin: 0.5rem 0.3rem;
+    color: #000000;
+    border-radius: .3rem;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.expanded { display: none; }
+
+ul {
+    background-color: white;
+    list-style-type: none;
+    margin: 1rem .5rem 0 -1em;
+    padding: 1em 3em;
+    border-radius: 1em;
+    text-align: center;
+}
+
+.Nav__black{
+z-index: 2;
+background: rgba(0, 0, 0, 0.95);
+width: 100%;
+}
+
+.Nav__right{ float: right; }
+.Nav__item li{ display:inline-block; }
+
+/* Nav Hover */
+.Nav__link:hover{ background-color: #0C66FF; }
+.Nav__link:hover .Nav__item{ color: #FFF; }
+
+/* Nav Active */
+.Nav__item--active{ 
+    background-color: #0C66FF; 
+    color: #FFF; 
+}
+
+.Nav__item--active .Nav__item{ 
+    background-color: #0C66FF; 
+    color: #FFF; 
+}
+
+/* Nav Mobile */
+details {
+    display: initial;
+    position: fixed;
+    right: 0;
+    top: 1.5em;
+}
+
+summary {
+    font-size: 1.6em;
+    color: var(--content);
+    margin-right: 1.5em;
+}
+@media screen and (min-width: 750px) {
+    .expanded {
+        display: block;
+        position: fixed;
+        right: 2em;
+    }
+    details {
+        display: none;
+    }
+}
