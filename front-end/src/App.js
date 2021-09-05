@@ -5,7 +5,7 @@ import LoginError from './Components/LoginRegister/LoginError';
 import RegisterError from './Components/LoginRegister/RegisterError'
 import Map from './Components/Maps/Map';
 import Verification from './Components/LoginRegister/Verification';
-
+import Errands from './Components/Errands.js';
 
 function App() {
   return (
@@ -36,7 +36,10 @@ function App() {
     </Route>
     <Route exact path="/verify">
       <Verification/>
+    </Route>
 
+    <Route exact path="/errands">
+      <Errands/>
     </Route>
 
     </Router>
