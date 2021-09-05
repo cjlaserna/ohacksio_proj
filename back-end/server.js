@@ -16,6 +16,7 @@ const oAuth = new google.auth.OAuth2(clientID, clientSecret, redirectURI)
 oAuth.setCredentials({refresh_token: refreshToken})
 
 const UserModel = require("./models/User");
+const RunModel = require("./models/Run");
 
 app.use(express.json());    
 app.use(cors());
@@ -92,27 +93,30 @@ app.post('/register', async (req, res) =>{//authenticating and fetching user log
     });
 });
 
+app.post("/runID", async (req, res)=>{ // fetching data from frontend
+    const _id = req.body._id;
+    await UserModel.findById(_id, (err, uModel)=>{
+       await RunModel.findbyId(uModel.current_run, (err, rModel)=>{
+            res.send(rModel);
+       });
+    });
+}); 
 
 
 app.post("/insert", async (req, res)=>{ // fetching data from frontend
-    const imgURL = req.body.imgURL;
-    const title = req.body.title; 
-    const subject = req.body. subject; 
-    const  author = req.body.author;
-    const  description = req.body.description;
-    const  level = req.body. level;
-    const dateOfCreate =  req.body.dateOfCreate;
-    const unit = req.body.unit;
     const createdBy = req.body.createdBy;
-    const course = new CourseModel({title: title, subject: subject, author: author, description:description, level: level, dateOfCreate:dateOfCreate, unit: unit, imgURL:imgURL, createdBy: createdBy});
+    const run = req.body.run;
+    const Run = RunModel({createdBy:createdBy, run:run})
     try
     {
-        await course.save();
-        res.send(course._id);
+        await run.save();
+        res.send(run._id);
 
     }catch(err){
     }
 }); 
+
+
 
 app.get("/read", async (req, res)=>{//reading from database
    CourseModel.find({}/*looking in database*/, (err, result) => {

@@ -1,3 +1,4 @@
+const { listenerCount } = require("events");
 const mongoose = require ("mongoose");
 const UserSchema = new mongoose.Schema({
 username: {
@@ -11,6 +12,14 @@ password: {
 email: {
     type: String,
     required: false,
+},
+current_run:{
+    type: String,
+    required: false,
+},
+past_runs:{
+    type: Array, String,
+    required: false
 },
 verCode: {
     type: String,
