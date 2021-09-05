@@ -7,16 +7,17 @@ import Verification from './Components/LoginRegister/Verification';
 import MenuBar from './Components/MenuBar';
 import GoogleMap from './Components/Maps/GoogleMap';
 import Map_Page from './Components/Maps/Map_Page';
+import Dashboard from './Components/Dashboard/Dashboard';
 
 import Errands from './Components/UserPages/Errands/Errands.js';
 
 function App() {
   return (
     <Router>
-      <MenuBar />
+      <MenuBar/>
     <Switch>
       <Route exact path="/" activeClassName='Nav__active'>
-        <h1>Dashboard</h1>
+        <Dashboard/>
       </Route>
 
       <Route exact path="/login">

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@deck.gl/core": "^8.5.7",
     "@googlemaps/google-maps-services-js": "^3.1.16",
     "@react-google-maps/api": "^2.2.0",
     "@testing-library/jest-dom": "^5.14.1",
@@ -10,6 +11,7 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.3",
     "chokidar": "^3.5.2",
+    "deck.gl": "^8.5.7",
     "directions-to-geojson": "^0.2.0",
     "geojson-path-finder": "^1.5.3",
     "google": "^2.1.0",
