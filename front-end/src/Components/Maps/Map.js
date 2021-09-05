@@ -2,35 +2,16 @@ import React, {useState, useCallback} from 'react';
 import {render} from 'react-dom';
 import MapGL, {GeolocateControl, NavigationControl, FullscreenControl, ScaleControl, Source, Layer} from 'react-map-gl';
 import directionsToGeoJson from 'directions-to-geojson'
+import { accessToken } from 'mapbox-gl';
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiYXJ5YW5vdmFsZWthciIsImEiOiJja3Q2Y2w0bTYwaDJwMm5vMHh0NHJydnUwIn0.jBc3OwM4kr5hJCRv9ubQgQ'; // Set your mapbox token here
 
-const opts = {
-  apiKey: 'AIzaSyAuEEGIpPJNvBSohTdxHm3kH8r5B0Oy-Z0', // Google Maps API key
-  stroke: '#ff1800', // Color of line
-  fileName: './test/datafile.geojson', // The output
-  origin: 'New Orleans, Louisiana', // Starting location of the directions
-  destination: 'Manhattan, New York, NY', // The destination of the directions
-  waypoints: [ // The locations between the beginning and destination
-    'Oak Ridge, Tennessee',
-    'Philadelphia, Pennsylvania'
-  ]
-}
+const coordinates = [-122.42,37.78,-77.03,38.91]
 
-const mapdata= directionsToGeoJson(opts)
-
-const start = {
-  'type': 'Point',
-  'geometry': {
-  'coordinates': [0, 0],
-  }}
-  const finish = {
-    'type': 'Point',
-    'geometry': {
-    'coordinates': [0, 0],
-    }}
-
-
+const query = fetch(
+  `https://api.mapbox.com/directions/v5/mapbox/cycling/-122.42,37.78;-77.03,38.91?access_token=pk.eyJ1IjoiYXJ5YW5vdmFsZWthciIsImEiOiJja3Q2Y2w0bTYwaDJwMm5vMHh0NHJydnUwIn0.jBc3OwM4kr5hJCRv9ubQgQ`,
+  { method: 'GET' }
+);
 
 const geolocateStyle = {
   top: 0,
@@ -70,6 +51,7 @@ const Map = () => {
   });
 
   const onMapLoad = useCallback(evt => {
+    console.log(query)
     const map = evt.target;
     map.setTerrain({source: 'mapbox-dem', exaggeration: 1.5});
   }, []);
@@ -93,19 +75,19 @@ const Map = () => {
           tileSize={512}
           maxzoom={14}
         />
-    <Source id='route' type='geojson'  />
+  <Source id='route' type='geojson'  data ={query}/>
   <Layer
-    id='route'
-    type='line'
-    source='route'
-    layout={{
-      'line-join': 'round',
-      'line-cap': 'round'
-    }}
-    paint={{
-      'line-color': '#888',
-      'line-width': 8
-    }}
+     id='route'
+     type='line'
+     source='route'
+     layout={{
+       'line-join': 'round',
+       'line-cap': 'round'
+     }}
+     paint={{
+       'line-color': '#888',
+       'line-width': 8
+     }}
   />
     </MapGL>
   )
