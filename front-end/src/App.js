@@ -6,6 +6,7 @@ import RegisterError from './Components/LoginRegister/RegisterError'
 import Verification from './Components/LoginRegister/Verification';
 import MenuBar from './Components/MenuBar';
 import GoogleMap from './Components/Maps/GoogleMap';
+import Map_Page from './Components/Maps/Map_Page';
 
 
 function App() {
@@ -34,7 +35,7 @@ function App() {
     </Route>
 
     <Route exact path="/map">
-      <GoogleMap/>
+      <Map_Page/>
     </Route>
 
     <Route exact path="/verify">

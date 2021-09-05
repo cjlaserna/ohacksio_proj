@@ -1,6 +1,6 @@
 import React from 'react'
 import './map_page.css'
-import Map from './Map.js'
+import GoogleMap from './GoogleMap.js'
 import Errand from './Errand.js'
 import Errand_Time from './Errand_Time.js'
 
@@ -17,13 +17,11 @@ const Map_Page = () => {
                     <Errand />
                     <Errand_Time />
                     <Errand />
-                    <Errand_Time />
-                    <Errand />
 
                 </div>
             </div>
             <div className = "mappage_right">
-                <Map />
+                <GoogleMap />
             </div>
         </div>
     )

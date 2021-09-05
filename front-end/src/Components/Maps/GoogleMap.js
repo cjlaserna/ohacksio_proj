@@ -4,7 +4,7 @@ import { GoogleMap, LoadScript, DirectionsService, DirectionsRenderer } from '@r
 const key = "AIzaSyCj_1kmVhtPyMCGU9VO_QZ6JtpQ5fnP_X8"
 
 const containerStyle = {
-    width: '100vw',
+    width: '100%',
     height: '100%'
   };
   
@@ -57,8 +57,7 @@ export default function SimpleMap(){
   }
 
   return (
-    <div style={{ height: '100vh', width: '100%' }}>
-    <button onClick = {click}>bruh</button>
+    <div style={{ height: '100%', width: '100%' }}>
     <LoadScript googleMapsApiKey={key}>
         <GoogleMap
           mapContainerStyle={containerStyle}
