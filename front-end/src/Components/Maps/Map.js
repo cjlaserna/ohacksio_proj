@@ -50,7 +50,9 @@ const Map = () => {
   const getquery = () => fetch(
     `https://api.mapbox.com/directions/v5/mapbox/cycling/-122.42,37.78;-77.03,38.91?access_token=pk.eyJ1IjoiYXJ5YW5vdmFsZWthciIsImEiOiJja3Q2Y2w0bTYwaDJwMm5vMHh0NHJydnUwIn0.jBc3OwM4kr5hJCRv9ubQgQ`,
     { method: 'GET' }
-  );
+  ).then(response => {
+    console.log(response)
+});
 
   const onMapLoad = useCallback(evt => {
     setQuery(getquery())
