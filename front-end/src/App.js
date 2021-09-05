@@ -3,9 +3,9 @@ import Login from './Components/LoginRegister/Login';
 import Register from './Components/LoginRegister/Register'
 import LoginError from './Components/LoginRegister/LoginError';
 import RegisterError from './Components/LoginRegister/RegisterError'
-import Map_Page from './Components/Maps/Map_Page';
 import Verification from './Components/LoginRegister/Verification';
 import MenuBar from './Components/MenuBar';
+import GoogleMap from './Components/Maps/GoogleMap';
 
 
 function App() {
@@ -34,8 +34,9 @@ function App() {
     </Route>
 
     <Route exact path="/map">
-      <Map_Page/>
+      <GoogleMap/>
     </Route>
+
     <Route exact path="/verify">
       <Verification/>
 
