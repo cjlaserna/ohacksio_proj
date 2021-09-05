@@ -1,0 +1,33 @@
+{
+    "clients": [
+        {
+            "id": 1,
+            "name": "Aditya Shelke",
+            "current_run": [
+                {
+                    "type": "Pick Up",
+                    "Address": "19 Alexis Lane, Edison, NJ",
+                    "user_time": 25
+                },
+                {
+                    "type": "Shopping",
+                    "Address": "205 Vineyard Road, Edison, NJ",
+                    "user_time": 35
+                },
+                {
+
+                },
+                {
+ 
+                }
+            ],
+            "past_runs": [
+                
+            ]
+
+        },
+        {
+
+        }
+    ]
+}
