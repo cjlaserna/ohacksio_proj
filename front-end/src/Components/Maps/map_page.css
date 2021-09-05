@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.mappage_fullview {
+    height: calc(100vh - 6em);
+    width: 100vw;
+    display: flex;
+}
+
+.mappage_left {
+    height: calc(100vh - 6em);
+    width: 30%;
+}
+
+.mappage_left_inner {
+    padding-top: 3em;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+.mappage_right {
+    height: calc(100vh - 6em);
+    width: calc(100vw - 30%);
+}
+
+.mappage_title {
+    font-family: 'Roboto';
+    font-weight: 600;
+    letter-spacing: 3px;
+    font-size: 50px;
+}

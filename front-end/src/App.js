@@ -3,7 +3,7 @@ import Login from './Components/LoginRegister/Login';
 import Register from './Components/LoginRegister/Register'
 import LoginError from './Components/LoginRegister/LoginError';
 import RegisterError from './Components/LoginRegister/RegisterError'
-import Map from './Components/Maps/Map';
+import Map_Page from './Components/Maps/Map_Page';
 import Verification from './Components/LoginRegister/Verification';
 
 
@@ -32,7 +32,7 @@ function App() {
     </Route>
 
     <Route exact path="/map">
-      <Map/>
+      <Map_Page/>
     </Route>
     <Route exact path="/verify">
       <Verification/>
