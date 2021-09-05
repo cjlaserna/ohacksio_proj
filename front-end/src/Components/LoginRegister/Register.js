@@ -36,16 +36,7 @@ const Login = (props) => {
 
     return (
         <div className = "login">
-            <div className = "login-navbar">
-                <div className = "login-navbar-left">
-                    <img />
-                </div>
-                <div className = "login-navbar-right">
-                    <button className = "button-unclicked">Home</button>
-                    <button className = "button-unclicked">Login</button>
-                    <button className = "button-clicked">Register</button>
-                </div>
-            </div>
+
             <div className = "main-login-content">
                 <div className = "main-login-content-inner">
                     <div className = "login-left">

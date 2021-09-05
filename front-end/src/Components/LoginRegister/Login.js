@@ -31,16 +31,7 @@ const Login = () => {
     };
     return (
         <div className = "login">
-            <div className = "login-navbar">
-                <div className = "login-navbar-left">
-                    <img />
-                </div>
-                <div className = "login-navbar-right">
-                    <button className = "button-unclicked">Home</button>
-                    <button className = "button-clicked">Login</button>
-                    <button className = "button-unclicked">Register</button>
-                </div>
-            </div>
+
             <div className = "main-login-content">
                 <div className = "main-login-content-inner">
                     <div className = "login-left">
