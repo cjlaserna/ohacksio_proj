@@ -1,8 +1,7 @@
 import React from "react";
-import { GoogleMap, LoadScript,DirectionsService,DirectionsRenderer } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, DirectionsService, DirectionsRenderer } from '@react-google-maps/api';
 
-const directionsService = new DirectionsService();
-const directionsRenderer = new DirectionsRenderer();
+const key = "AIzaSyAuEEGIpPJNvBSohTdxHm3kH8r5B0Oy-Z0"
 
 const containerStyle = {
     width: '100%',
@@ -24,29 +23,22 @@ const containerStyle = {
     { latitude: 28.4813018, longitude: -81.4387899 }
   ];
 
-  const calcRoute = () => {
-    console.log("calculating route")
-    directionsService.route({
-        origin: "9 Matthew Ct",
-        destination: "1 Alexis Lane",
-        travelMode: 'DRIVING',
-      })
-      .then((response) => {directionsRenderer.setDirections(response);})
-      .catch((e) => window.alert("Directions request failed due to something"));
-  }
-
 export default function SimpleMap(){
 
   return (
     <div style={{ height: '100vh', width: '100%' }}>
-    <button onClick={calcRoute}>Text</button>
-    <LoadScript googleMapsApiKey="AIzaSyAuEEGIpPJNvBSohTdxHm3kH8r5B0Oy-Z0">
+    <button onClick={console.log("click")}>Text</button>
+    <LoadScript googleMapsApiKey={key}>
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={center}
           zoom={10}
           markers={places}
-        />
+        >
+          <DirectionsRenderer>
+
+          </DirectionsRenderer>
+        </GoogleMap>
       </LoadScript>
     </div>
   );
