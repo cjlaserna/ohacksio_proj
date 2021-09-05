@@ -39,8 +39,8 @@ const DATA_URL = {
   };
   
   const INITIAL_VIEW_STATE = {
-    longitude: -74,
-    latitude: 40.72,
+    longitude: -73.99,
+    latitude: 40.7199,
     zoom: 13.5,
     pitch: 45,
     bearing: 0
@@ -95,7 +95,7 @@ const Background = () => {
                 layers={layers}
                 effects={theme.effects}
                 initialViewState={initialViewState}
-                controller={true}
+                controller={false}
             >
             <StaticMap className="Background" mapboxApiAccessToken={"pk.eyJ1IjoiYXJ5YW5vdmFsZWthciIsImEiOiJja3Q2Y2x3MTkwaDFnMnZxd3BveWVzdXhsIn0.Gr0SAUNzUTyyLcFEOUIXew"} mapStyle={mapStyle} />
           </DeckGL>
