@@ -1,6 +1,8 @@
 import axios from "axios"
 import { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
+import './LoginRegisterStyles/loginstyles.css'
+import Image1 from '../../Assets/image1.svg'
 
 const Login = () => {
     //States
@@ -28,30 +30,38 @@ const Login = () => {
            }});
     };
     return (
-        <div className="wholeLoginPage">
-            <div className="title-container">
-                <div className="titleLogin">Welcome back, please log in</div>
-            </div>
-            <div className='middle'>
-                <div className="leftSideLogin">
-                    <form className='add-form' onSubmit={loginUser}>
-                        <div className='email-fieldLogin'>
-                            <label className="emailLogin">Email: </label>
-                            <input className="email-enterLogin" type='email' placeholder = 'Add email' value={email} onChange={(e) => setEmail(e.target.value)}/>
-                        </div>
-                        <div className='password-fieldLogin'>
-                            <label className="passwordLogin">Password: </label>
-                            <input className="password-enterLogin" type='password' placeholder = 'Add password' value={password} onChange={(e) => setPassword(e.target.value)}/>
-                        </div>
-                        <div className="loginSubmitLogin"><input type = 'submit' value =  'LOGIN' className='loginButtonLogin'></input></div>
-                        
-                    </form>
-                    <div className="redirectToRegisterLogin">
-                        Don't have an account? 
-                        <a className="loginHereRedirectButton" href="/registration"> Register here  </a>
-                    </div>
+        <div className = "login">
+            <div className = "login-navbar">
+                <div className = "login-navbar-left">
+                    <img />
                 </div>
-                <div className="rightSideLogin">
+                <div className = "login-navbar-right">
+                    <button className = "button-unclicked">Home</button>
+                    <button className = "button-clicked">Login</button>
+                    <button className = "button-unclicked">Register</button>
+                </div>
+            </div>
+            <div className = "main-login-content">
+                <div className = "main-login-content-inner">
+                    <div className = "login-left">
+                        <form className = "login-form" onSubmit={loginUser}>
+                            <h1 className = "login-title">Login</h1>
+                            <input className = "login-element" type='email' placeholder = 'Email Address' value={email} onChange={(e) => setEmail(e.target.value)}/>
+                            <input className = "login-element" type='password' placeholder = 'Password' value={password} onChange={(e) => setPassword(e.target.value)}/>
+                            <div className = "login-misc">
+                                <div className = "login-misc-4">
+                                    <a className = "login-misc-1">Don't have an account?  </a>
+                                    <a className = "login-misc-2">Register Here</a>
+                                </div>
+                                <input className = "login-misc-3" type = 'submit' value =  'LOGIN'></input>
+                            </div>
+                        </form>
+                    </div>
+                    <div className = "login-right">
+                        <img src = {Image1} />
+                    </div>
+                    </div>
+                    <div>
                 </div>
             </div>
         </div>
