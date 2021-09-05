@@ -8,6 +8,7 @@ import MenuBar from './Components/MenuBar';
 import GoogleMap from './Components/Maps/GoogleMap';
 import Map_Page from './Components/Maps/Map_Page';
 
+import Errands from './Components/Errands.js';
 
 function App() {
   return (
@@ -40,7 +41,10 @@ function App() {
 
     <Route exact path="/verify">
       <Verification/>
+    </Route>
 
+    <Route exact path="/errands">
+      <Errands/>
     </Route>
 
     </Router>

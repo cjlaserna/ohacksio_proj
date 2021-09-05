@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+
+/* wrapper / base */
+.errands__wrapper{
+  margin: 10%;
+}
+
+.errands__wrapper .Title{
+  font-weight: 500;
+  font-size: 3em;
+}
+
+/* accordion */
+
+.accordion {
+    background-color: #F2F3F7;
+    cursor: pointer;
+    letter-spacing: 0.04rem;
+    
+    margin: 0.5em;
+    padding: 1.5em;
+    width: 100%;
+
+    border: 0px solid transparent;
+    border-radius: 15px;
+    outline: none;
+
+    text-align: left;
+    font-size: 15px;
+    
+    transition: 0.4s;
+  }
+  
+  .accordion-prev{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .accordion-left{
+    width: 100%;
+  }
+  .accordion-title{
+    color: #000000;
+    width: 100%;
+  }
+  .accordion-location span{
+    color: #3F3D56;
+  }
+
+
+
+
+  .active, .accordion:hover {
+    background-color: #ececec;
+  }
+  
+  .accordion-button{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    
+    width: 100%;
+    height:100%;
+  }
+  
+  .panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
