@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { useLocation, useHistory } from "react-router-dom";
 import axios from 'axios'
 
-import './UserPages/UserPagesStyles/Errands.css'
-import AccordionItem from './UserPages/Errands/AccordionItem';
-import AllData from "../db.json";
+import '../UserPagesStyles/Errands.css'
+import AccordionItem from './AccordionItem';
+import AllData from "../../../db.json";
 
 
 const clientID = 0 //placeholder for login / client id

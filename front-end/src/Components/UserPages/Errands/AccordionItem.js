@@ -29,7 +29,7 @@ const AccordionItem = ({ title, location, time, type, content }) => {
             list
         );
     }
-
+    
     let contentSwitch = (param) => {
         switch(param) {
             case 'notes':
