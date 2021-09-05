@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useHistory } from "react-router-dom";
 import axios from 'axios'
+
+import './VerifyErrorStyles/verification.css'
+import emailgraphic from '../../Assets/emailgraphic.svg'
+
 const Verification = () => {
     
     let location = useLocation();
@@ -42,19 +46,31 @@ const Verification = () => {
     const resendVerification = (event) =>{
         event.preventDefault();
     }
-    
+
+    console.log(verificationCode)
     return (
-        <div>
-            <div>
-                <h1>Account Verification</h1>
+        <div className="verify__wrapper">
+            <div className="verify__title">
+                <h1>Verify Your Account</h1>
             </div>
-            <form onSubmit={onSubmit}>
-                <div>
-                    <label>Enter your code here: </label>
-                    <input className="password-enterRegister" type='text' placeholder = 'Add verification code' value={verificationCode} onChange={(e) => setVerificationCode(e.target.value)}/>
+
+            <div className="verify__split">
+                <div className="verify__left">
+                    <div className="content">
+                        <img src= {emailgraphic}></img>
+                    </div>
                 </div>
-                <input className="Verify" type = 'submit' value =  'Verify'></input>
-            </form>
+                <div className="verify__right">
+                    <form className="verify__form" onSubmit={onSubmit}>
+                        <div className="verify__box">
+                            <label>Enter Verification Code</label>
+                            <input className="password-enterRegister" type='text' placeholder = 'Enter Code' value={verificationCode} onChange={(e) => setVerificationCode(e.target.value)}/>
+                            { verificationCode !== '' ?
+                            <input className="Verify" type = 'submit' value =  'Verify'></input> : <span></span> }
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     )
 }
