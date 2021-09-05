@@ -6,7 +6,7 @@ import { accessToken } from 'mapbox-gl';
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiYXJ5YW5vdmFsZWthciIsImEiOiJja3Q2Y2w0bTYwaDJwMm5vMHh0NHJydnUwIn0.jBc3OwM4kr5hJCRv9ubQgQ'; // Set your mapbox token here
 
-const coordinates = [-122.42,37.78,-77.03,38.91]
+const coords = [-122.42,37.78,-77.03,38.91]
 
 const geolocateStyle = {
   top: 0,
@@ -45,25 +45,34 @@ const Map = () => {
     height:"100vh"
   });
 
-  const [query, setQuery] = useState(0);
+  const [query, setQuery] = useState()
 
-  const getquery = () => fetch(
-    `https://api.mapbox.com/directions/v5/mapbox/cycling/-122.42,37.78;-77.03,38.91?access_token=pk.eyJ1IjoiYXJ5YW5vdmFsZWthciIsImEiOiJja3Q2Y2w0bTYwaDJwMm5vMHh0NHJydnUwIn0.jBc3OwM4kr5hJCRv9ubQgQ`,
-    { method: 'GET' }
+  const getquery = (coordinates) => fetch(
+    `https://api.mapbox.com/directions/v5/mapbox/cycling/${coordinates[0]},${coordinates[1]};${coordinates[2]},${coordinates[3]}?access_token=${MAPBOX_TOKEN}&geometries=geojson`,
+      { method: 'GET' }
   ).then(response => {
-    console.log(response)
-});
+  response.json().then(res => {
+    const routes = res.routes[0].geometry.coordinates
+    console.log(routes)
+    setQuery(routes)
+    return routes
+    })
+  });
+
+  const geojson = {
+    type: 'Feature',
+    properties: {},
+    geometry: {
+      type: 'LineString',
+      coordinates: query
+    }
+  };
 
   const onMapLoad = useCallback(evt => {
-    setQuery(getquery())
-    console.log(query)
+    getquery(coords)
     const map = evt.target;
     map.setTerrain({source: 'mapbox-dem', exaggeration: 1.5});
   }, []);
-
-  useEffect(() => {
-    console.log(query)
-  }, [query])
 
   return (
     <MapGL
@@ -84,7 +93,7 @@ const Map = () => {
           tileSize={512}
           maxzoom={14}
         />
-  <Source id='route' type='geojson'  data ={query}/>
+  <Source id='route' type='geojson' data={geojson}/>
   <Layer
      id='route'
      type='line'

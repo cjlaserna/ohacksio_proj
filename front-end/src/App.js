@@ -33,7 +33,7 @@ function App() {
     </Route>
 
     <Route exact path="/map">
-      <Map/>
+      <GoogleMap/>
     </Route>
 
     <Route exact path="/verify">
