@@ -6,13 +6,23 @@ import Errand_Time from './Errand_Time.js'
 import { useState, useEffect } from "react"
 import { useHistory } from "react-router";
 import { GoogleMap, LoadScript, DirectionsService, DirectionsRenderer, Circle, Marker } from '@react-google-maps/api';
+import axios from 'axios'
 
 const key = "AIzaSyCj_1kmVhtPyMCGU9VO_QZ6JtpQ5fnP_X8"
 
 const Map_Page = () => {
     let history = useHistory();
     
-    
+    const userIDtoRunObject = (event) =>{
+        event.preventDefault();
+        const userToken = window.localStorage.getItem("token")
+        axios.post("http://localhost:3001/runID", {
+            _id: userToken
+        })
+        .then(response => {
+            console.log(response)
+        });
+    };
 
     const startLoc = {title: "STARTcostco", location: "9 matthew ct edison nj", duration: "30 mins"}
     const endLoc = {title: "ENDcostco", location: "jps high school", duration: "30 mins"}
