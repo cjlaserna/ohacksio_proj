@@ -21,8 +21,14 @@ const Map_Page = () => {
             _id: userToken
         })
         .then(response => {
+<<<<<<< Updated upstream
             setServerMapData(response.data);
             console.log(serverMapData)
+=======
+            console.log("test")
+            setServerMapData(response.data)
+            console.log(response.data)
+>>>>>>> Stashed changes
         });
     };
 
