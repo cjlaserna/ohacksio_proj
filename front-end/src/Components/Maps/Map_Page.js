@@ -44,10 +44,10 @@ const Map_Page = ({ dummyData, startLoc, endLoc }) => {
   const [checker, setChecker] = useState(0)
   const directionsCallback = (response) => {
     if (response !== null && response.status === 'OK') {
-        
+        if (checker<1){
             setMapData(response)
             setChecker(checker+1)
-          
+          }
       }
     }
 
@@ -65,9 +65,6 @@ const Map_Page = ({ dummyData, startLoc, endLoc }) => {
 
     useEffect(() => {
         setChecker(0)
-        console.log (startLoc)
-        console.log (endLoc)
-        console.log (dummyData)
     }, [dummyData, startLoc, endLoc])
 
     return (
@@ -75,17 +72,12 @@ const Map_Page = ({ dummyData, startLoc, endLoc }) => {
             <div className = "mappage_left">
                 <div className = "mappage_left_inner">
                     <h1 className = "mappage_title">Errands</h1>
-
-                    <Errand erName={startLoc.title} erDuration={startLoc.user_time} erAddress={startLoc.address} type={startLoc.type} content={startLoc.content}/>
-                    <Errand_Time time={mapData.routes[0].legs[0].duration.text}/>
                     {dummyData.map((errand, index) =>
                         <>
                         <Errand erName={errand.title} erDuration={errand.user_time} erAddress={errand.address} type={errand.type} content={errand.content}/>
                         <Errand_Time onLoad = {append()} time={mapData.routes[0].legs[index+1].duration.text}/>
                         </>
                     )}
-                    <Errand erName={endLoc.title} erDuration={endLoc.user_time} erAddress={endLoc.address} type={endLoc.type} content={endLoc.content}/>
-                    <Errand_Time time={""}/>
 
                 </div>
             </div>

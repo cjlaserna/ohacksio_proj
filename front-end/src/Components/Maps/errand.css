@@ -4,7 +4,12 @@
     width: 100%;
     background-color: #F2F3F7;
     border-radius: 15px;
-    
+}
+
+.errand-container:hover {
+    width: 100%;
+    background-color: #ececec;
+    border-radius: 15px;
 }   
 
 .errand-container-inner {

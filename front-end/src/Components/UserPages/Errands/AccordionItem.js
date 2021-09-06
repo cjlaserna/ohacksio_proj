@@ -8,14 +8,6 @@ import '../UserPagesStyles/Errands.css'
 
 const AccordionItem = forwardRef((props, ref) => {
     const [isActive, setIsActive] = useState(false);
-    // let contentByType ={
-    //     switch(type){
-    //         case 'notes':
-    //             return(<div className="accordion-notes"><p>{content}</p></div>);
-    //          default: 
-    //          return 'black';
-    //     }
-    // };
     
     let contentList = (param) => {
         const list = param.map((line, i) =>

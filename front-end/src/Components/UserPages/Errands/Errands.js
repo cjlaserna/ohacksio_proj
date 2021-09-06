@@ -16,14 +16,13 @@ const Errands = () => {
     const [visible, modifyVisible] = useState("errands_container_overlay_invisible");
     const [idCounter, modifyidCounter] = useState(0);
     const [newErrandObject, modifyNewErrandObject] = useState([]);
-    const [runID, modifyRunID] = useState("");
 
     // console.log("Obama");
     // modifyContentArray(AllData.run);
     // console.log(AllData.run);
     // console.log(AllData);
     // console.log(contentArray);
-    
+
     let history = useHistory();
 
     useEffect(() => {
@@ -32,6 +31,7 @@ const Errands = () => {
             history.push("/login")
         }
         console.log("Hello Snake");
+
         console.log(userToken)
         axios.post("http://localhost:3001/runID", {
             _id: userToken//user token stored in localstorage
@@ -41,6 +41,9 @@ const Errands = () => {
             modifyContentArray(response.data.run);
             modifyRunID(response.data._id);
         });
+
+        modifyContentArray(AllData.run)
+
 
     }, []);
 
@@ -72,7 +75,7 @@ const Errands = () => {
                 <div className = "adder_1">
                     <div className = "errands_container_overlay_add_outer">
                         <div className = "errands_container_overlay_add_inner">
-                            {showAddPage ? <AddErrand modifyShowAddPage = {modifyShowAddPage} contentArray = {contentArray} modifyContentArray = {modifyContentArray} modifyVisible = {modifyVisible} runID = {runID}/> : <div></div>}
+                            {showAddPage ? <AddErrand modifyShowAddPage = {modifyShowAddPage} contentArray = {contentArray} modifyContentArray = {modifyContentArray} modifyVisible = {modifyVisible}/> : <div></div>}
                         </div>
                     </div>
                 </div>
