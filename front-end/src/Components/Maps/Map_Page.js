@@ -92,7 +92,7 @@ const Map_Page = ({ dummyData, startLoc, endLoc }) => {
                 <GoogleMaps mapInfo={mapData}/>
                         
                 <LoadScript googleMapsApiKey={key}>
-                        <DirectionsService options ={{destination: endLoc.address, origin: startLoc.address, waypoints: waypoints, travelMode: tmode, optimizeWaypoints: false}}
+                        <DirectionsService options ={{destination: endLoc.address, origin: startLoc.address, waypoints: waypoints, travelMode: tmode, optimizeWaypoints: true}}
                         callback={directionsCallback}/>
                     </LoadScript>
             </div>
