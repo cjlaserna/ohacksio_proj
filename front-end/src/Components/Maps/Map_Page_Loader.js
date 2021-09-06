@@ -20,7 +20,17 @@ const Map_Page_Loader = () => {
     }, [])
 
     const sortArray = () => {
-        
+        AllData.run.forEach(element => {
+            if(element.destination_type=="start"){
+                setOrigin(element)
+            }
+            if(element.destination_type=="end"){
+                
+            }
+            if(element.destination_type=="errand"){
+                
+            }
+        });
     }
 
     const [origin, setOrigin] = useState({title: "STARTcostco", address: "9 Matthew CT, Edison, NJ ", user_time: 30, type: "list", content: ["Cook", "Clean"]})

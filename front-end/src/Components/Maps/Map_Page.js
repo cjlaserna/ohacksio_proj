@@ -26,17 +26,6 @@ const Map_Page = ({ dummyData, startLoc, endLoc }) => {
         });
     };
 
-    const startLoc = {title: "STARTcostco", location: "9 matthew ct edison nj", duration: 30, type: "list", content: ["Cook", "Clean"]}
-    const endLoc = {title: "ENDcostco", location: "jps high school", duration: 65, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"}
-    const dummyData = [
-        {title: "costco", location: "205 Vineyard Rd, Edison, NJ 08817", duration: 108, type: "list", content: ["Cook", "Clean"]},
-        {title: "walmart", location: "2220 NJ-27, Edison, NJ 08817", duration: 18, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"},
-        {title: "costco", location: "100 Vineyard Rd, Edison, NJ 08817", duration: 10, type: "list", content: ["Cook", "Clean"]},
-        {title: "costco", location: "305 Vineyard Rd, Edison, NJ 08817", duration: 3, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"},
-        {title: "costco", location: "405 Vineyard Rd, Edison, NJ 08817", duration: 26, type: "list", content: ["Cook", "Clean"]},
-        {title: "costco", location: "50 Vineyard Rd, Edison, NJ 08817", duration: 102, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"}
-    ]
-
     const [org, setOrg] = useState("")
     const [dest, setDest] = useState("")
     const [tmode, setTmode] = useState("DRIVING")
