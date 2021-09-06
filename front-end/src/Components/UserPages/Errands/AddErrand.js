@@ -65,6 +65,7 @@ const AddErrand = ({modifyShowAddPage, contentArray, modifyContentArray, modifyV
             console.log("Bruh");
             console.log(contentArray.destination_type);
            if (contentArray[i].destination_type === "start") {
+               console.log("star")
                options_temp.splice(0, 1);
             }
            if (contentArray[i].destination_type === "end") {
