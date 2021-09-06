@@ -3,6 +3,10 @@
 .Background {
   overflow: hidden;
   z-index: -10;
+  padding-top: 0.5em;
+
+  display: flex;
+  align-items: stretch;
 }
 
 .deskgl-herowrapper{

@@ -20,21 +20,21 @@ const Map_Page = () => {
             _id: userToken
         })
         .then(response => {
-            console.log(test)
+            console.log("test")
             setServerMapData(response.data)
             console.log(serverMapData)
         });
     };
 
-    const startLoc = {title: "STARTcostco", location: "9 matthew ct edison nj", duration: "30 mins"}
-    const endLoc = {title: "ENDcostco", location: "jps high school", duration: "30 mins"}
+    const startLoc = {title: "STARTcostco", location: "9 matthew ct edison nj", duration: 30, type: "list", content: ["Cook", "Clean"]}
+    const endLoc = {title: "ENDcostco", location: "jps high school", duration: 65, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"}
     const dummyData = [
-        {title: "costco", location: "205 Vineyard Rd, Edison, NJ 08817", duration: "30 mins"},
-        {title: "walmart", location: "2220 NJ-27, Edison, NJ 08817", duration: "15 mins"},
-        {title: "costco", location: "100 Vineyard Rd, Edison, NJ 08817", duration: "30 mins"},
-        {title: "costco", location: "305 Vineyard Rd, Edison, NJ 08817", duration: "30 mins"},
-        {title: "costco", location: "405 Vineyard Rd, Edison, NJ 08817", duration: "30 mins"},
-        {title: "costco", location: "50 Vineyard Rd, Edison, NJ 08817", duration: "30 mins"}
+        {title: "costco", location: "205 Vineyard Rd, Edison, NJ 08817", duration: 108, type: "list", content: ["Cook", "Clean"]},
+        {title: "walmart", location: "2220 NJ-27, Edison, NJ 08817", duration: 18, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"},
+        {title: "costco", location: "100 Vineyard Rd, Edison, NJ 08817", duration: 10, type: "list", content: ["Cook", "Clean"]},
+        {title: "costco", location: "305 Vineyard Rd, Edison, NJ 08817", duration: 3, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"},
+        {title: "costco", location: "405 Vineyard Rd, Edison, NJ 08817", duration: 26, type: "list", content: ["Cook", "Clean"]},
+        {title: "costco", location: "50 Vineyard Rd, Edison, NJ 08817", duration: 102, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"}
     ]
 
     const [org, setOrg] = useState("")
@@ -68,7 +68,6 @@ const Map_Page = () => {
 
     useEffect(() => {
         const userToken = window.localStorage.getItem("token")
-        console.log("sdfsfdsfsd")
         userIDtoRunObject();
         if (userToken == null) {
             //history.push("/login")
@@ -82,15 +81,15 @@ const Map_Page = () => {
                 <div className = "mappage_left_inner">
                     <h1 className = "mappage_title">Errands</h1>
 
-                    <Errand erName={startLoc.title} erDuration={startLoc.duration} erAddress={startLoc.location}/>
+                    <Errand erName={startLoc.title} erDuration={startLoc.duration} erAddress={startLoc.location} type={startLoc.type} content={startLoc.content}/>
                     <Errand_Time time={mapData.routes[0].legs[0].duration.text}/>
                     {dummyData.map((errand, index) =>
                         <>
-                        <Errand erName={errand.title} erDuration={errand.duration} erAddress={errand.location}/>
+                        <Errand erName={errand.title} erDuration={errand.duration} erAddress={errand.location} type={errand.type} content={errand.content}/>
                         <Errand_Time onLoad = {append()} time={mapData.routes[0].legs[index+1].duration.text}/>
                         </>
                     )}
-                    <Errand erName={endLoc.title} erDuration={endLoc.duration} erAddress={endLoc.location}/>
+                    <Errand erName={endLoc.title} erDuration={endLoc.duration} erAddress={endLoc.location} type={endLoc.type} content={endLoc.content}/>
                     <Errand_Time time={""}/>
 
                 </div>
