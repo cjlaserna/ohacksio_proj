@@ -1,6 +1,6 @@
 const { listenerCount } = require("events");
 const mongoose = require ("mongoose");
-const RunScchema  = new mongoose.Schema({
+const RunSchema  = new mongoose.Schema({
 createdBy: {
     type: String,
     required: false,
