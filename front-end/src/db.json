@@ -10,7 +10,8 @@
                     "user_time": 25,
                     "type": "list",
                     "content": [ "Tomato", "Milk" ],
-                    "id": 1
+                    "id": 1,
+                    "destination_type": "start"
                 },
                 {
                     "title": "Pick Up James @ Adventist Health",
@@ -18,7 +19,8 @@
                     "user_time": 25,
                     "type": "notes",
                     "content": "Ear Appointment @ 2, bring kids",
-                    "id": 2872394902
+                    "id": 2872394902,
+                    "destination_type": "end"
                 }
             ],
             "past_runs": [
