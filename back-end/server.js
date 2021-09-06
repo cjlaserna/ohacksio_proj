@@ -94,6 +94,7 @@ app.post('/register', async (req, res) =>{//authenticating and fetching user log
 });
 
 app.post("/runID", async (req, res)=>{ // fetching data from frontend
+    console.log("hope this runs")
     const _id = req.body._id;
     UserModel.findById(_id, async (err, uModel)=>{
         RunModel.findbyId(uModel.current_run, (err, rModel)=>{

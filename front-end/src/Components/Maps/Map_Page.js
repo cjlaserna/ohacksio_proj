@@ -15,13 +15,16 @@ const Map_Page = () => {
     const [serverMapData, setServerMapData] = useState()
     
     const userIDtoRunObject = (event) =>{
+        console.log("1")
         event.preventDefault();
+        console.log("2")
         const userToken = window.localStorage.getItem("token")
         axios.post("http://localhost:3001/runID", {
             _id: userToken
         })
         .then(response => {
-            setServerMapData(response)
+            console.log(test)
+            setServerMapData(response.data)
             console.log(serverMapData)
         });
     };
@@ -68,7 +71,8 @@ const Map_Page = () => {
 
     useEffect(() => {
         const userToken = window.localStorage.getItem("token")
-        console.log(userIDtoRunObject)
+        console.log("sdfsfdsfsd")
+        userIDtoRunObject();    
         if (userToken == null) {
             //history.push("/login")
         }
