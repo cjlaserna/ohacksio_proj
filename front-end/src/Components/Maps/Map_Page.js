@@ -22,7 +22,7 @@ const Map_Page = () => {
         })
         .then(response => {
             setServerMapData(response)
-            console.log(serverMapData)
+            console.log("test")
         });
     };
 
@@ -68,11 +68,11 @@ const Map_Page = () => {
 
     useEffect(() => {
         const userToken = window.localStorage.getItem("token")
-        console.log(userIDtoRunObject)
+        userIDtoRunObject()
         if (userToken == null) {
             //history.push("/login")
         }
-        console.log(waypts())
+        waypts()
     }, [])
 
     return (
