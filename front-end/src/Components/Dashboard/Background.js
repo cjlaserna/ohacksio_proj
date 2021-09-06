@@ -6,6 +6,8 @@ import DeckGL, { GeoJsonLayer, ArcLayer } from 'deck.gl';
 import {TripsLayer} from '@deck.gl/geo-layers';
 import {MapboxLayer} from '@deck.gl/mapbox';
 import './Background.css'
+import MenuBar from '../MenuBar';
+import { Link } from 'react-router-dom';
 
 const DATA_URL = {
     TRIPS: 'https://raw.githubusercontent.com/visgl/deck.gl-data/master/examples/trips/trips-v7.json' // eslint-disable-line
@@ -89,15 +91,25 @@ const Background = () => {
     })
   ];
 
+
     return (
-        <div>
-            <DeckGL
+        <div className="Background">
+            <DeckGL 
                 layers={layers}
                 effects={theme.effects}
                 initialViewState={initialViewState}
                 controller={false}
+                width={"100vw"} height={"90vh"}
+                style={{top:"10vh !important;"}}
             >
-            <StaticMap className="Background" mapboxApiAccessToken={"pk.eyJ1IjoiYXJ5YW5vdmFsZWthciIsImEiOiJja3Q2Y2x3MTkwaDFnMnZxd3BveWVzdXhsIn0.Gr0SAUNzUTyyLcFEOUIXew"} mapStyle={mapStyle} />
+            <StaticMap mapboxApiAccessToken={"pk.eyJ1IjoiYXJ5YW5vdmFsZWthciIsImEiOiJja3Q2Y2x3MTkwaDFnMnZxd3BveWVzdXhsIn0.Gr0SAUNzUTyyLcFEOUIXew"} mapStyle={mapStyle} />
+            <div className="deskgl-herowrapper" style={{cursor:"default"}}>
+              <div className="deskgl-hero">
+                <h1 className="deskgl-title">NaviTask</h1>
+                <p className="deskgl-desc">A faster way of moving.</p>
+                <Link to="/errands" className="deskgl-button">Begin </Link>
+              </div>
+            </div>          
           </DeckGL>
         </div>
     )
