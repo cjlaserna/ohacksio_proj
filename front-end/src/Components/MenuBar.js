@@ -55,7 +55,12 @@ class MenuBar extends React.Component {
                         </ul>
                         :
                         <ul className="Nav__item-wrapper">
-                            <NavLink exact activeClassName="Nav__item--active" className="Nav__link" to="/errands">
+                            <NavLink exact activeClassName="Nav__item--active" className="Nav__link" to="/">
+                                <li className="Nav__item">
+                                    Home
+                                </li>
+                            </NavLink>
+                            <NavLink activeClassName="Nav__item--active" className="Nav__link" to="/errands">
                                 <li className="Nav__item">
                                     Errands
                                 </li>
@@ -63,11 +68,6 @@ class MenuBar extends React.Component {
                             <NavLink activeClassName="Nav__item--active" className="Nav__link" to="/map">
                                 <li className="Nav__item">
                                     Map
-                                </li>
-                            </NavLink>
-                            <NavLink activeClassName="Nav__item--active" className="Nav__link" to="/past-errands">
-                                <li className="Nav__item">
-                                    Past Errands
                                 </li>
                             </NavLink>
                         </ul>
