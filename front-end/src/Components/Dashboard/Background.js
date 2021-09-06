@@ -99,7 +99,7 @@ const Background = () => {
                 effects={theme.effects}
                 initialViewState={initialViewState}
                 controller={false}
-                width={"100vw"} height={"90vh"}
+                width={"100%"} height={"calc(100% - 6em - 0.5em"}
                 style={{top:"10vh !important;"}}
             >
             <StaticMap mapboxApiAccessToken={"pk.eyJ1IjoiYXJ5YW5vdmFsZWthciIsImEiOiJja3Q2Y2x3MTkwaDFnMnZxd3BveWVzdXhsIn0.Gr0SAUNzUTyyLcFEOUIXew"} mapStyle={mapStyle} />
