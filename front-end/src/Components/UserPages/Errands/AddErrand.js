@@ -5,7 +5,7 @@ import axios from 'axios';
 
 import {useState, useEffect} from 'react'
 
-const AddErrand = ({modifyShowAddPage, contentArray, modifyContentArray, modifyVisible, runID}) => {
+const AddErrand = ({modifyShowAddPage, contentArray, modifyContentArray, modifyVisible, runID, modifyRunID}) => {
 
     const [titleType, setTitleType] = useState("");
     const [addressType, setAddressType] = useState("");
@@ -41,13 +41,14 @@ const AddErrand = ({modifyShowAddPage, contentArray, modifyContentArray, modifyV
         modifyContentArray(temp_1);
 
         const userToken = window.localStorage.getItem("token")
-        console.log("one two three four")
-        console.log(runID)
-        console.log(temp_1)
-        axios.post("http://localhost:3001/updated", {
+        console.log(userToken)
+        axios.post("http://localhost:3001/insert", {
             _id: runID, 
             run: temp_1,
-        })
+            createdBy: userToken
+        }) .then(response => {
+            modifyRunID(response.data);
+        });
 
 
         modifyVisible("errands_container_overlay_invisible")

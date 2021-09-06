@@ -112,20 +112,21 @@ app.post("/runID", async (req, res)=>{ // fetching data from frontend
 app.post("/insert", async (req, res)=>{ // fetching data from frontend
     const createdBy = req.body.createdBy;
     const run = req.body.run;
+    const _id = req.body._id;
     const Run = RunModel({createdBy:createdBy, run:run})
-    try
-    {
-        await Run.save();
-        res.send(Run._id);
-
-    }catch(err){
-    }
+    await Run.save();
+    res.send(Run._id);
+    await UserModel.findById(createdBy, (err, newUser)=>{
+        console.log(newUser)
+        console.log(_id)
+        newUser.current_run = Run._id;
+        newUser.save();
+    });
 }); 
 
-app.put("/updated", async (req, res)=>{ // fetching data from frontend
+app.put("/update", async (req, res)=>{ // fetching data from frontend
     const run = req.body.run;
     const _id = req.body._id;
-    console.log("please")
     await RunModel.findById(_id, (err, rModel)=>{
         rModel.run = run;
         rModel.save();
