@@ -25,24 +25,22 @@ const Map_Page = ({ dummyData, startLoc, endLoc }) => {
             console.log(serverMapData)
         });
     };
-
-    const [org, setOrg] = useState("")
-    const [dest, setDest] = useState("")
     const [tmode, setTmode] = useState("DRIVING")
     const [waypoints, setwaypoints] = useState([])
     const waypts = () =>{
+        
         dummyData.map((errand) =>
             waypoints.push({location: errand.address, stopover: true})
         )
-        setOrg(startLoc.address)
-        setDest(endLoc.address)
+        console.log(waypoints)
+        setChecker(0)
         return waypoints;
     }
-
 
   const [mapData, setMapData] = useState({routes: [{legs: [{duration: {text: "Duration Not Loaded"}},{duration: {text: "Duration Not Loaded"}},]}]})
   const [checker, setChecker] = useState(0)
   const directionsCallback = (response) => {
+    console.log("callback")
     if (response !== null && response.status === 'OK') {
         if (checker<1){
             setMapData(response)
@@ -60,19 +58,28 @@ const Map_Page = ({ dummyData, startLoc, endLoc }) => {
         if (userToken == null) {
             history.push("/login")
         }
-        waypts()
+       
     }, [])
 
     useEffect(() => {
         setChecker(0)
-    }, [dummyData, startLoc, endLoc])
+    }, [startLoc, endLoc])
+
+    useEffect(() => {
+        setChecker(0)
+        waypts()
+    }, [dummyData])
+
+    function handleClick(e) {
+        e.preventDefault();
+        console.log(waypoints)
+    }
 
     return (
         <div className = "mappage_fullview">
             <div className = "mappage_left">
                 <div className = "mappage_left_inner">
                     <h1 className = "mappage_title">Errands</h1>
-
                     <Errand erName={startLoc.title} erDuration={startLoc.user_time} erAddress={startLoc.address} type={startLoc.type} content={startLoc.content}/>
                     <Errand_Time time={mapData.routes[0].legs[0].duration.text}/>
                     {dummyData.map((errand, index) =>
@@ -87,10 +94,11 @@ const Map_Page = ({ dummyData, startLoc, endLoc }) => {
                 </div>
             </div>
             <div className = "mappage_right">
+            <button href="#" onClick={handleClick}>TEST</button>
                 <GoogleMaps mapInfo={mapData}/>
-
+                        
                 <LoadScript googleMapsApiKey={key}>
-                        <DirectionsService options ={{destination: dest, origin: org, waypoints: waypoints, travelMode: tmode, optimizeWaypoints: false}}
+                        <DirectionsService options ={{destination: endLoc.address, origin: startLoc.address, waypoints: waypoints, travelMode: tmode, optimizeWaypoints: false}}
                         callback={directionsCallback}/>
                     </LoadScript>
             </div>
