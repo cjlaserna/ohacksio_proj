@@ -16,7 +16,8 @@ const Map_Page_Loader = () => {
     };
     
     useEffect(() => {
-        console.log("run")
+        //sortArray()
+        setOrigin({title: "STARTcostco", address: "9 Matthew CT, Edison, NJ ", user_time: 30, type: "list", content: ["Cook", "Clean"]})
     }, [])
 
     const sortArray = () => {
@@ -25,20 +26,21 @@ const Map_Page_Loader = () => {
                 setOrigin(element)
             }
             if(element.destination_type=="end"){
-                
+                setEndpt(element)
             }
             if(element.destination_type=="errand"){
-                
+                finalArray.push(element)
             }
         });
     }
 
-    const [origin, setOrigin] = useState({title: "STARTcostco", address: "9 Matthew CT, Edison, NJ ", user_time: 30, type: "list", content: ["Cook", "Clean"]})
+    const [origin, setOrigin] = useState({title: "STARTcostco", address: "855 Grove Ave, Edison, NJ 08820", user_time: 30, type: "list", content: ["Cook", "Clean"]})
     const [endpt, setEndpt] = useState({title: "ENDcostco", address: "855 Grove Ave, Edison, NJ 08820", user_time: 65, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"})
-    
+    const [finalArray, setFinalArray] = useState(AllData.run)
+
     return (
         <div>
-            <Map_Page dummyData={AllData.run} startLoc={origin} endLoc = {endpt}/>
+            <Map_Page dummyData={finalArray} startLoc={origin} endLoc = {endpt}/>
         </div>
     )
 }
