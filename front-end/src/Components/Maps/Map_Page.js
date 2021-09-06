@@ -11,7 +11,7 @@ import AllData from "../../db.json";
 
 const key = "AIzaSyCj_1kmVhtPyMCGU9VO_QZ6JtpQ5fnP_X8"
 
-const Map_Page = () => {
+const Map_Page = ({ dummyData, startLoc, endLoc }) => {
     let history = useHistory();
     const [serverMapData, setServerMapData] = useState("null")
 
@@ -21,14 +21,8 @@ const Map_Page = () => {
             _id: userToken
         })
         .then(response => {
-<<<<<<< Updated upstream
             setServerMapData(response.data);
             console.log(serverMapData)
-=======
-            console.log("test")
-            setServerMapData(response.data)
-            console.log(response.data)
->>>>>>> Stashed changes
         });
     };
 
@@ -49,13 +43,13 @@ const Map_Page = () => {
     const [waypoints, setwaypoints] = useState([])
     const waypts = () =>{
         dummyData.map((errand) =>
-            waypoints.push({location: errand.location, stopover: true})
-
+            waypoints.push({location: errand.address, stopover: true})
         )
-        setOrg(startLoc.location)
-        setDest(endLoc.location)
+        setOrg(startLoc.address)
+        setDest(endLoc.address)
         return waypoints;
     }
+
 
   const [mapData, setMapData] = useState({routes: [{legs: [{duration: {text: "Duration Not Loaded"}},{duration: {text: "Duration Not Loaded"}},]}]})
   const [checker, setChecker] = useState(0)
@@ -74,12 +68,10 @@ const Map_Page = () => {
 
     useEffect(() => {
         const userToken = window.localStorage.getItem("token")
-        userIDtoRunObject();
         if (userToken == null) {
             history.push("/login")
         }
         waypts()
-        console.log(AllData)
     }, [])
 
     return (
@@ -88,15 +80,15 @@ const Map_Page = () => {
                 <div className = "mappage_left_inner">
                     <h1 className = "mappage_title">Errands</h1>
 
-                    <Errand erName={startLoc.title} erDuration={startLoc.duration} erAddress={startLoc.location} type={startLoc.type} content={startLoc.content}/>
+                    <Errand erName={startLoc.title} erDuration={startLoc.user_time} erAddress={startLoc.address} type={startLoc.type} content={startLoc.content}/>
                     <Errand_Time time={mapData.routes[0].legs[0].duration.text}/>
                     {dummyData.map((errand, index) =>
                         <>
-                        <Errand erName={errand.title} erDuration={errand.duration} erAddress={errand.location} type={errand.type} content={errand.content}/>
+                        <Errand erName={errand.title} erDuration={errand.user_time} erAddress={errand.address} type={errand.type} content={errand.content}/>
                         <Errand_Time onLoad = {append()} time={mapData.routes[0].legs[index+1].duration.text}/>
                         </>
                     )}
-                    <Errand erName={endLoc.title} erDuration={endLoc.duration} erAddress={endLoc.location} type={endLoc.type} content={endLoc.content}/>
+                    <Errand erName={endLoc.title} erDuration={endLoc.user_time} erAddress={endLoc.address} type={endLoc.type} content={endLoc.content}/>
                     <Errand_Time time={""}/>
 
                 </div>
