@@ -11,13 +11,27 @@ import AddErrand from './AddErrand.js'
 const Errands = () => {
     const [isActive, setIsActive] = useState(false);
     const clientID = 0 //placeholder for login / client id
-    const [contentArray, modifyContentArray] = useState([]) // change 0 to client id
+    const [contentArray, modifyContentArray] = useState([
+        {
+            "title": "Shopping at Walmart",
+            "address": "205 Vineyard Road, Edison, NJ",
+            "user_time": 25,
+            "type": "list",
+            "content": [ "Tomato", "Milk" ],
+            "id": 1,
+            "destination_type": "start"
+        },]) // change 0 to client id
     const [showAddPage, modifyShowAddPage] = useState(false);
     const [visible, modifyVisible] = useState("errands_container_overlay_invisible");
     const [idCounter, modifyidCounter] = useState(0);
     const [newErrandObject, modifyNewErrandObject] = useState([]);
-    const [runID, modifyRunID] = useState("");
 
+    // console.log("Obama");
+    // modifyContentArray(AllData.run);
+    // console.log(AllData.run);
+    // console.log(AllData);
+    // console.log(contentArray);
+    
     let history = useHistory();
 
     useEffect(() => {
@@ -26,14 +40,37 @@ const Errands = () => {
             history.push("/login")
         }
         console.log("Hello Snake");
+        console.log(userToken);
 
         axios.post("http://localhost:3001/runID", {
             _id: userToken//user token stored in localstorage
         })
         .then(response => {
             console.log(response.data)//response.data is what we use
-            modifyContentArray(response.data.run);
-            modifyRunID(response.data._id);
+
+            let temp_object8 = response.data.run;
+            let temp_object7 = [
+                {
+                    "title": "Shopping at Walmart",
+                    "address": "205 Vineyard Road, Edison, NJ",
+                    "user_time": 25,
+                    "type": "list",
+                    "content": [ "Tomato", "Milk" ],
+                    "id": 1,
+                    "destination_type": "start"
+                }
+            ]
+
+            let temp_object_10 = [
+                temp_object8,
+                temp_object7
+            ]
+
+            console.log(response.data)
+
+            console.log(temp_object_10);
+
+            modifyContentArray(temp_object_10);
         });
 
     }, []);
@@ -66,7 +103,7 @@ const Errands = () => {
                 <div className = "adder_1">
                     <div className = "errands_container_overlay_add_outer">
                         <div className = "errands_container_overlay_add_inner">
-                            {showAddPage ? <AddErrand modifyShowAddPage = {modifyShowAddPage} contentArray = {contentArray} modifyContentArray = {modifyContentArray} modifyVisible = {modifyVisible} runID = {runID}/> : <div></div>}
+                            {showAddPage ? <AddErrand modifyShowAddPage = {modifyShowAddPage} contentArray = {contentArray} modifyContentArray = {modifyContentArray} modifyVisible = {modifyVisible}/> : <div></div>}
                         </div>
                     </div>
                 </div>
