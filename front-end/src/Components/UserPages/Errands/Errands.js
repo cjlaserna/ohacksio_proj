@@ -32,7 +32,7 @@ const Errands = () => {
             history.push("/login")
         }
         console.log("Hello Snake");
-
+        console.log(userToken)
         axios.post("http://localhost:3001/runID", {
             _id: userToken//user token stored in localstorage
         })
