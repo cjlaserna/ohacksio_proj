@@ -11,19 +11,20 @@ const Map_Page_Loader = () => {
         })
         .then(response => {
             
-            //console.log(serverMapData)
+            console.log(response)
         });
     };
     
     useEffect(() => {
-        //sortArray()
-       
+        sortArray()
     }, [])
 
     const sortArray = () => {
+        console.log("sorting")
         AllData.run.forEach(element => {
             if(element.destination_type=="start"){
                 setOrigin(element)
+                console.log(element)
             }
             if(element.destination_type=="end"){
                 setEndpt(element)
@@ -36,13 +37,16 @@ const Map_Page_Loader = () => {
         });
     }
 
-    const [origin, setOrigin] = useState({title: "STARTcostco", address: "855 Grove Ave, Edison, NJ 08820", user_time: 30, type: "list", content: ["Cook", "Clean"]})
-    const [endpt, setEndpt] = useState({title: "ENDcostco", address: "855 Grove Ave, Edison, NJ 08820", user_time: 65, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"})
-    const [finalArray, setFinalArray] = useState(AllData.run)
+    
+
+    const [origin, setOrigin] = useState({title: "START", address: "NJ", user_time: 60, type: "list", content: ["List 1", "List 2"]})
+    const [endpt, setEndpt] = useState({title: "ENDcostco", address: "NJ", user_time: 60, type: "note", content: "WORDS"})
+    const [finalArray, setFinalArray] = useState([])
     const [tempArray, setTempArray] = useState([])
 
     return (
         <div>
+            
             <Map_Page dummyData={finalArray} startLoc={origin} endLoc = {endpt}/>
         </div>
     )

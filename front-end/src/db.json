@@ -3,7 +3,8 @@
     "run": [
         {
             "title": "Shopping at Walmart",
-            "address": "205 Vineyard Road, Edison, NJ",
+            "address": "9 matthew ct",
+            "location": "9 matthew ct",
             "user_time": 25,
             "type": "list",
             "content": [ "Tomato", "Milk" ],
@@ -11,8 +12,9 @@
             "destination_type": "start"
         },
         {
-            "title": "Pick Up James @ Adventist Health",
+            "title": "Bruh 2",
             "address": "1 Alexis Lane, Edison, NJ",
+            "location": "1 Alexis Lane, Edison, NJ",
             "user_time": 25,
             "type": "notes",
             "content": "Ear Appointment @ 2, bring kids",
@@ -20,13 +22,25 @@
             "destination_type": "errand"
         },
         {
-            "title": "Pick Up James @ Adventist Health",
+            "title": "End",
+            "address": "village pointe edison nj",
+            "location": "10 Alexis Lane, Edison, NJ",
+            "user_time": 25,
+            "type": "notes",
+            "content": "Ear Appointment @ 2, bring kids",
+            "id": 2872,
+            "destination_type": "end"
+        },
+        {
+            "title": "Bruh 3",
             "address": "19 Alexis Lane, Edison, NJ",
+            "location": "19 Alexis Lane, Edison, NJ",
             "user_time": 25,
             "type": "notes",
             "content": "Ear Appointment @ 2, bring kids",
             "id": 2872,
             "destination_type": "errand"
         }
+        
     ]
 }
