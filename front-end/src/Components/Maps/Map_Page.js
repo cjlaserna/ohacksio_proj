@@ -68,7 +68,7 @@ const Map_Page = () => {
 
     useEffect(() => {
         const userToken = window.localStorage.getItem("token")
-        userIDtoRunObject()
+        console.log(userIDtoRunObject)
         if (userToken == null) {
             //history.push("/login")
         }
