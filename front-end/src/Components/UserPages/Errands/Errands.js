@@ -8,29 +8,6 @@ import AccordionItem from './AccordionItem';
 import AllData from "../../../db.json";
 import AddErrand from './AddErrand.js'
 
-
-
-
-// const content = contentArray.current_run.map((errand, i) => {
-//     return(
-//     <div className="accordion" key={i}>
-//         <AccordionItem title={errand.title} location={errand.address} time={errand.user_time} type={errand.type} content={errand.content}/>
-//     </div>
-//     );
-// });
-
-// const FunctionalArticle = forwardRef((props, ref) => {
-//     const [hello, useHello] = useState("helloworldsnake");
-
-//     return(
-//     <div ref={ref}>
-//         <div>
-//             {props.title}
-//       </div>
-//     </div>
-//     )
-//   });
-
 const Errands = () => {
     const [isActive, setIsActive] = useState(false);
     const clientID = 0 //placeholder for login / client id

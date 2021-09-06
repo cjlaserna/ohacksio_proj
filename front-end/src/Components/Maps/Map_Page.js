@@ -12,7 +12,7 @@ const key = "AIzaSyCj_1kmVhtPyMCGU9VO_QZ6JtpQ5fnP_X8"
 
 const Map_Page = () => {
     let history = useHistory();
-    const [serverMapData, setServerMapData] = useState()
+    const [serverMapData, setServerMapData] = useState("null")
 
     const userIDtoRunObject = (event) =>{
         const userToken = window.localStorage.getItem("token")
@@ -20,9 +20,8 @@ const Map_Page = () => {
             _id: userToken
         })
         .then(response => {
-            console.log("test")
-            setServerMapData(response)
-            console.log(response)
+            setServerMapData(response.data);
+            console.log(serverMapData)
         });
     };
 
