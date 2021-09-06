@@ -11,7 +11,7 @@ const AddErrand = ({modifyShowAddPage, contentArray, modifyContentArray, modifyV
     const [addressType, setAddressType] = useState("");
     const [estimatedTime, setEstimatedTime] = useState();
     const [dropdownType, setDropdownType] = useState("notes");
-    const [destinationType, setDestinationType] = useState("");
+    const [destinationType, setDestinationType] = useState("start");
     const [notesType, setNotesType] = useState("");
     const [checkListType, setCheckListType] = useState([]);
 
@@ -19,6 +19,8 @@ const AddErrand = ({modifyShowAddPage, contentArray, modifyContentArray, modifyV
 
     const submit_function = (e) => {
         e.preventDefault();
+
+        console.log(contentArray);
         
         let temp_object = {
             "title": titleType,
@@ -55,29 +57,29 @@ const AddErrand = ({modifyShowAddPage, contentArray, modifyContentArray, modifyV
         modifyShowAddPage(false);
     }
 
-    useEffect(() => {
-        let options_temp = ["start", "end", "errand"];
-        console.log("snake");
-        console.log(contentArray);
+    // useEffect(() => {
+    //     let options_temp = ["start", "errand", "end"];
+    //     console.log("snake");
+    //     console.log(contentArray);
 
-        for(let i = 0; i < contentArray.length; i++) {
-            console.log(contentArray[i]);
-            console.log("Bruh");
-            console.log(contentArray.destination_type);
-           if (contentArray[i].destination_type === "start") {
-               console.log("star")
-               options_temp.splice(0, 1);
-            }
-           if (contentArray[i].destination_type === "end") {
-               options_temp.splice(1, 1);
-           }
-        }
-        console.log("options and stuff");
-        console.log(options_temp);
-        setOptions(options_temp);
+    //     for(let i = 0; i < contentArray.length; i++) {
+    //         console.log(options_temp);
+    //         // console.log(contentArray[i]);
+    //         // console.log("Bruh");
+    //         // console.log(contentArray[i].destination_type);
+    //        if (contentArray[i].destination_type === "start") {
+    //            options_temp.shift();
+    //         }
+    //        if (contentArray[i].destination_type === "end") {
+    //            options_temp.pop();
+    //        }
+    //     }
+    //     console.log("options and stuff");
+    //     console.log(options_temp);
+    //     setOptions(options_temp);
 
-       // setOptions(options_temp);
-    }, [contentArray]);
+    //    // setOptions(options_temp);
+    // }, [contentArray]);
     // const destination_type_finder = () => {
 
     // }
@@ -97,7 +99,9 @@ const AddErrand = ({modifyShowAddPage, contentArray, modifyContentArray, modifyV
                         <h3 className = "temp1">Selection Menu</h3>
                         <p className = "temp2">Is this location the start of your trip, end of your trip, or an errand you are doing in between?</p>
                         <select value = {destinationType} onChange = {(event) => setDestinationType(event.target.value)}>
-                            {options.map((destination_type => <option value = {destination_type}>{destination_type}</option>))}
+                            <option value = "start">start</option>
+                            <option value = "end">end</option>
+                            <option value = "errand">errand</option>
                         </select>
                         <button onClick = {submit_function} className = "errand_adder_form_button" type = "submit">Submit</button>
                     </div>
