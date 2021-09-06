@@ -1,12 +1,11 @@
 import React from 'react'
 import './errand.css'
-
 import { useEffect } from "react"
 import { useHistory } from "react-router";
+import PropTypes from 'prop-types'
 
 
-
-const Errand = () => {
+const Errand = ( props ) => {
     
     let history = useHistory();
     useEffect(() => {
@@ -21,13 +20,25 @@ const Errand = () => {
         <div className = "errand-container">
             <div className = "errand-container-inner">
                 <div className = "errand-title-time-container">
-                    <h1 className = "errand-title">Costco</h1>
-                    <p className = "errand-time">25 min</p>
+                    <div className = "errand-title">{props.erName}</div>
+                    <p className = "errand-time">{props.erDuration}</p>
                 </div>
-                <p className = "errand-address">4 Elm Street, Edison, NJ</p>
+                <p className = "errand-address">{props.erAddress}</p>
             </div>
         </div>
     )
+}
+
+Errand.defaultProps = {
+    erName: 'Default Title',
+    erDuration: 'X Hours X Minues',
+    erAddress: 'X Random Street Name',
+}
+
+Errand.propTypes = {
+    erName: PropTypes.string,
+    erDuration: PropTypes.string,
+    erAddress: PropTypes.string,
 }
 
 export default Errand
