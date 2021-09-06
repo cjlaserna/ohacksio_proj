@@ -1,8 +1,10 @@
 import React from "react";
 import "./MenuBar.css";
 import { NavLink } from "react-router-dom";
+import logo from '../Assets/icon.svg'
 
 class MenuBar extends React.Component {
+
   listener = null;
   state = {
     nav: false,
@@ -33,6 +35,7 @@ class MenuBar extends React.Component {
       <nav className="Nav">
         <div className="Nav__container">
           <div className={`Nav ${this.state.nav && "Nav__black"}`}>
+            <img id="logo" src={logo}></img>
             <div className="Nav__right">
                     { userToken === null ? 
                         <ul className="Nav__item-wrapper">

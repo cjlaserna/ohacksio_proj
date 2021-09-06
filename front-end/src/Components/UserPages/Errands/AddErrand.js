@@ -5,7 +5,7 @@ import axios from 'axios';
 
 import {useState, useEffect} from 'react'
 
-const AddErrand = ({modifyShowAddPage, contentArray, modifyContentArray, modifyVisible, runID}) => {
+const AddErrand = ({modifyShowAddPage, contentArray, modifyContentArray, modifyVisible}) => {
 
     const [titleType, setTitleType] = useState("");
     const [addressType, setAddressType] = useState("");
@@ -51,7 +51,7 @@ const AddErrand = ({modifyShowAddPage, contentArray, modifyContentArray, modifyV
         console.log("snake");
         console.log(contentArray);
 
-        for(let i = 0; i < options_temp.length; i++) {
+        for(let i = 0; i < contentArray.length; i++) {
             console.log(contentArray[i]);
             console.log("Bruh");
             console.log(contentArray.destination_type);
