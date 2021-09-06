@@ -125,22 +125,12 @@ app.post("/insert", async (req, res)=>{ // fetching data from frontend
 app.put("/update", async (req, res)=>{ // fetching data from frontend
     const run = req.body.run;
     const _id = req.body._id;
+    console.log("please")
     await RunModel.findById(_id, (err, rModel)=>{
+        rModel.run = run;
         rModel.save();
      });
 }); 
-
-
-
-app.get("/read", async (req, res)=>{//reading from database
-   CourseModel.find({}/*looking in database*/, (err, result) => {
-       if(err){
-        res.send(err)
-       }
-       res.send(result);
-   })
-});
-
 
 app.listen(3001, ()=> {
     //  console.log('Server up and running on 3001');
