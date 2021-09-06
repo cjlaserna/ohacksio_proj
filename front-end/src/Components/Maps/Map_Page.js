@@ -13,14 +13,29 @@ const key = "AIzaSyCj_1kmVhtPyMCGU9VO_QZ6JtpQ5fnP_X8"
 
 const Map_Page = ({ dummyData, startLoc, endLoc }) => {
     let history = useHistory();
-    //[
-    //    {title: "costco", address: "205 Vineyard Rd, Edison, NJ 08817", user_time: 108, type: "list", content: ["Cook", "Clean"]},
-    //    {title: "walmart", address: "2220 NJ-27, Edison, NJ 08817", user_time: 18, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"},
-    //    {title: "costco", address: "100 Vineyard Rd, Edison, NJ 08817", user_time: 10, type: "list", content: ["Cook", "Clean"]},
-    //    {title: "costco", address: "305 Vineyard Rd, Edison, NJ 08817", user_time: 3, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"},
-    //    {title: "costco", address: "405 Vineyard Rd, Edison, NJ 08817", user_time: 26, type: "list", content: ["Cook", "Clean"]},
-    //    {title: "costco", address: "50 Vineyard Rd, Edison, NJ 08817", user_time: 102, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"}
-    //]
+    const [serverMapData, setServerMapData] = useState("null")
+
+    const userIDtoRunObject = (event) =>{
+        const userToken = window.localStorage.getItem("token")
+        axios.post("http://localhost:3001/runID", {
+            _id: userToken
+        })
+        .then(response => {
+            setServerMapData(response.data);
+            console.log(serverMapData)
+        });
+    };
+
+    const startLoc = {title: "STARTcostco", location: "9 matthew ct edison nj", duration: 30, type: "list", content: ["Cook", "Clean"]}
+    const endLoc = {title: "ENDcostco", location: "jps high school", duration: 65, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"}
+    const dummyData = [
+        {title: "costco", location: "205 Vineyard Rd, Edison, NJ 08817", duration: 108, type: "list", content: ["Cook", "Clean"]},
+        {title: "walmart", location: "2220 NJ-27, Edison, NJ 08817", duration: 18, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"},
+        {title: "costco", location: "100 Vineyard Rd, Edison, NJ 08817", duration: 10, type: "list", content: ["Cook", "Clean"]},
+        {title: "costco", location: "305 Vineyard Rd, Edison, NJ 08817", duration: 3, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"},
+        {title: "costco", location: "405 Vineyard Rd, Edison, NJ 08817", duration: 26, type: "list", content: ["Cook", "Clean"]},
+        {title: "costco", location: "50 Vineyard Rd, Edison, NJ 08817", duration: 102, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"}
+    ]
 
     const [org, setOrg] = useState("")
     const [dest, setDest] = useState("")
