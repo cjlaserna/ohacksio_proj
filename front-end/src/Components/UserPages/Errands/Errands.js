@@ -46,31 +46,10 @@ const Errands = () => {
             _id: userToken//user token stored in localstorage
         })
         .then(response => {
+            console.log("Data under this");
             console.log(response.data)//response.data is what we use
 
-            let temp_object8 = response.data.run;
-            let temp_object7 = [
-                {
-                    "title": "Shopping at Walmart",
-                    "address": "205 Vineyard Road, Edison, NJ",
-                    "user_time": 25,
-                    "type": "list",
-                    "content": [ "Tomato", "Milk" ],
-                    "id": 1,
-                    "destination_type": "start"
-                }
-            ]
-
-            let temp_object_10 = [
-                temp_object8,
-                temp_object7
-            ]
-
-            console.log(response.data)
-
-            console.log(temp_object_10);
-
-            modifyContentArray(temp_object_10);
+            modifyContentArray(response.data.run);
         });
 
     }, []);
@@ -87,7 +66,7 @@ const Errands = () => {
                     <h1 className = "Title" >Errands</h1>
                     <div className="errands__wrapper">
                         <FlipMove>
-                            {contentArray.map(errand => (
+                            {contentArray.map(errand => (errand === null ? <div></div> : 
                                 <AccordionItem key = {errand.id} title={errand.title} location={errand.address} time={errand.user_time} type={errand.type} content={errand.content}/>
                                 // <FunctionalArticle key = {errand.id} title = {errand.title}/>
                             ))}
