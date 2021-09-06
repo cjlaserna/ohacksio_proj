@@ -28,7 +28,7 @@ const Map_Page_Loader = () => {
     
     return (
         <div>
-            <Map_Page dummyData={AllData.current_run} startLoc={origin} endLoc = {endpt}/>
+            <Map_Page dummyData={AllData.run} startLoc={origin} endLoc = {endpt}/>
         </div>
     )
 }

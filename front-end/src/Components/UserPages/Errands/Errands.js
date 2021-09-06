@@ -31,7 +31,7 @@ const Errands = () => {
             history.push("/login")
         }
         console.log("Hello Snake");
-        modifyContentArray(AllData.current_run);
+        modifyContentArray(AllData.run);
     }, []);
 
     const showAddComponent = () => {
