@@ -10,7 +10,7 @@ import { useHistory } from "react-router";
 
 const Map_Page = () => {
     let history = useHistory();
-    
+
     // const userIDtoRunObject = (event) =>{
     //     event.preventDefault();
     //     axios.post("http://localhost:3001/runID", {
@@ -24,7 +24,7 @@ const Map_Page = () => {
     useEffect(() => {
         const userToken = window.localStorage.getItem("token")
         if (userToken == null) {
-            history.push("/login")
+            //history.push("/login")
         }
     }, [])
 

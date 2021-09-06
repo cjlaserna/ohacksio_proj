@@ -12,7 +12,7 @@ const Errand = () => {
     useEffect(() => {
         const userToken = window.localStorage.getItem("token")
         if (userToken == null) {
-            history.push("/login")
+            //history.push("/login")
         }
     }, [])
 
