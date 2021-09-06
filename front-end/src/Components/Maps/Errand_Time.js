@@ -1,12 +1,21 @@
 import React from 'react'
 import './errand.css'
+import PropTypes from 'prop-types'
 
-const Errand_Time = () => {
+const Errand_Time = (props) => {
     return (
         <div className = "travel_time_container">
-            <p>... 20 minutes ...</p>
+            <p>{props.time}</p>
         </div>
     )
+}
+
+Errand_Time.defaultProps = {
+    time: '... 20 minutes ...',
+}
+
+Errand_Time.propTypes = {
+    time: PropTypes.string,
 }
 
 export default Errand_Time
