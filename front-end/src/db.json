@@ -20,12 +20,30 @@
             "destination_type": "errand"
         },
         {
-            "title": "Pick Up James @ Adventist Health",
-            "address": "19 Alexis Lane, Edison, NJ",
-            "user_time": 25,
+            "title": "Withdraw money",
+            "address": "188-10 Hillside Avenue, Queens, NY 11423",
+            "user_time": 5,
             "type": "notes",
-            "content": "Ear Appointment @ 2, bring kids",
+            "content": "NEED 36 DOLLARS",
             "id": 3,
+            "destination_type": "errand"
+        },
+        {
+            "title": "Grocerie Shopping",
+            "address": "181-06 Hillside Avenue, Jamaica, NY 11432",
+            "user_time": 35,
+            "type": "list",
+            "content": ["Bread","Milk","Cheese","Ham Slices","Cereal"],
+            "id": 3,
+            "destination_type": "errand"
+        },
+        {
+            "title": "Pick up Medicine",
+            "address": "146-2 Hillside Avenue, Jamaica, NY 11435",
+            "user_time": 15,
+            "type": "notes",
+            "content": "Insulin for Grandma",
+            "id": 283,
             "destination_type": "errand"
         }
     ]

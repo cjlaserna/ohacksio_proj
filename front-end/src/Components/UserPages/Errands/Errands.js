@@ -27,14 +27,7 @@ const Errands = () => {
         }
         console.log("Hello Snake");
 
-        axios.post("http://localhost:3001/runID", {
-            _id: userToken//user token stored in localstorage
-        })
-        .then(response => {
-            console.log(response.data)//response.data is what we use
-            modifyContentArray(response.data.run);
-            modifyRunID(response.data._id);
-        });
+        modifyContentArray(AllData.run)
 
     }, []);
 

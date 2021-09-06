@@ -41,12 +41,6 @@ const AddErrand = ({modifyShowAddPage, contentArray, modifyContentArray, modifyV
         modifyContentArray(temp_1);
 
         const userToken = window.localStorage.getItem("token")
-        
-        axios.post("http://localhost:3001/update", {
-            _id: runID, 
-            run: temp_1,
-        })
-
 
         modifyVisible("errands_container_overlay_invisible")
         modifyShowAddPage(false);
