@@ -21,8 +21,8 @@ const Map_Page = () => {
         })
         .then(response => {
             console.log("test")
-            setServerMapData(response.data)
-            console.log(serverMapData)
+            setServerMapData(response)
+            console.log(response)
         });
     };
 
