@@ -18,12 +18,6 @@ const Errands = () => {
     const [newErrandObject, modifyNewErrandObject] = useState([]);
     const [runID, modifyRunID] = useState("");
 
-    // console.log("Obama");
-    // modifyContentArray(AllData.run);
-    // console.log(AllData.run);
-    // console.log(AllData);
-    // console.log(contentArray);
-    
     let history = useHistory();
 
     useEffect(() => {
