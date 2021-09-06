@@ -12,6 +12,8 @@ const key = "AIzaSyCj_1kmVhtPyMCGU9VO_QZ6JtpQ5fnP_X8"
 const Map_Page = () => {
     let history = useHistory();
     
+    
+
     const startLoc = {title: "STARTcostco", location: "9 matthew ct edison nj", duration: "30 mins"}
     const endLoc = {title: "ENDcostco", location: "jps high school", duration: "30 mins"}
     const dummyData = [
