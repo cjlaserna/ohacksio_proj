@@ -3,7 +3,6 @@ import { useLocation, useHistory } from "react-router-dom";
 import axios from 'axios'
 import FlipMove from 'react-flip-move';
 import React, {forwardRef} from 'react';
-
 import '../UserPagesStyles/Errands.css'
 import AccordionItem from './AccordionItem';
 import AllData from "../../../db.json";
@@ -41,7 +40,13 @@ const Errands = () => {
     const [idCounter, modifyidCounter] = useState(0);
     const [newErrandObject, modifyNewErrandObject] = useState([]);
     
+    let history = useHistory();
+
     useEffect(() => {
+        const userToken = window.localStorage.getItem("token")
+        if (userToken == null) {
+            //history.push("/login")
+        }
         console.log("Hello Snake");
         modifyContentArray(AllData.clients[0].current_run);
     }, []);
