@@ -80,7 +80,7 @@ app.post('/register', async (req, res) =>{//authenticating and fetching user log
             var seconds =Math.floor(Date.now()/1000);
             badToken+=seconds.toString(36);
             sendVerificationEmail(badToken, email);
-            const user = new UserModel({username: username, password: password, email: email, verCode:badToken});
+            const user = new UserModel({username: username, password: password, email: email, verCode:badToken, current_run: "613649bd2bbf60dcb510c7f9"});
             res.send({user})
         }
         else{
