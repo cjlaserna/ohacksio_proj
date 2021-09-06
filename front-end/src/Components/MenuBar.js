@@ -55,14 +55,14 @@ class MenuBar extends React.Component {
                         </ul>
                         :
                         <ul className="Nav__item-wrapper">
-                            <NavLink exact activeClassName="Nav__item--active" className="Nav__link" to="/">
+                            <NavLink exact activeClassName="Nav__item--active" className="Nav__link" to="/errands">
                                 <li className="Nav__item">
                                     Errands
                                 </li>
                             </NavLink>
-                            <NavLink activeClassName="Nav__item--active" className="Nav__link" to="/login">
+                            <NavLink activeClassName="Nav__item--active" className="Nav__link" to="/map">
                                 <li className="Nav__item">
-                                    Travel
+                                    Map
                                 </li>
                             </NavLink>
                             <NavLink activeClassName="Nav__item--active" className="Nav__link" to="/registration">
