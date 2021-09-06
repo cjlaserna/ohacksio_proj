@@ -21,8 +21,8 @@ const AccordionItem = forwardRef((props, ref) => {
         const list = param.map((line, i) =>
             <li className = "accordion-list-item" key={i}>
                 <label className="container"> 
+                    <input type="checkbox"/>
                     <span>{line}</span> 
-                    <input type="checkbox" checked="checked" />
                     <span className="checkmark"></span>
                 </label>
             </li>

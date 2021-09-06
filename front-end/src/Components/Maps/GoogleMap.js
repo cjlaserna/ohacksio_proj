@@ -57,7 +57,7 @@ function handleDrag() {
           onDragStart={handleDrag}
         >
           <button href="#" onClick={handleClick} class="switch">
-            Location
+            GPS
             </button>
           <Marker position={userLoc} zIndex={100}/>
           <DirectionsRenderer directions={mapInfo}/>

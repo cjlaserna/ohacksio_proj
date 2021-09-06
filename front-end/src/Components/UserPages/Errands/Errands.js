@@ -3,34 +3,10 @@ import { useLocation, useHistory } from "react-router-dom";
 import axios from 'axios'
 import FlipMove from 'react-flip-move';
 import React, {forwardRef} from 'react';
-
 import '../UserPagesStyles/Errands.css'
 import AccordionItem from './AccordionItem';
 import AllData from "../../../db.json";
 import AddErrand from './AddErrand.js'
-
-
-
-
-// const content = contentArray.current_run.map((errand, i) => {
-//     return(
-//     <div className="accordion" key={i}>
-//         <AccordionItem title={errand.title} location={errand.address} time={errand.user_time} type={errand.type} content={errand.content}/>
-//     </div>
-//     );
-// });
-
-// const FunctionalArticle = forwardRef((props, ref) => {
-//     const [hello, useHello] = useState("helloworldsnake");
-
-//     return(
-//     <div ref={ref}>
-//         <div>
-//             {props.title}
-//       </div>
-//     </div>
-//     )
-//   });
 
 const Errands = () => {
     const [isActive, setIsActive] = useState(false);
@@ -47,7 +23,13 @@ const Errands = () => {
     // console.log(AllData);
     // console.log(contentArray);
     
+    let history = useHistory();
+
     useEffect(() => {
+        const userToken = window.localStorage.getItem("token")
+        if (userToken == null) {
+            history.push("/login")
+        }
         console.log("Hello Snake");
         modifyContentArray(AllData.current_run);
     }, []);
