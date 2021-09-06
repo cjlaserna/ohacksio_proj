@@ -26,16 +26,17 @@ const Map_Page = () => {
         });
     };
 
-    const startLoc = {title: "STARTcostco", location: "9 matthew ct edison nj", duration: 30, type: "list", content: ["Cook", "Clean"]}
-    const endLoc = {title: "ENDcostco", location: "jps high school", duration: 65, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"}
-    const dummyData = [
-        {title: "costco", location: "205 Vineyard Rd, Edison, NJ 08817", duration: 108, type: "list", content: ["Cook", "Clean"]},
-        {title: "walmart", location: "2220 NJ-27, Edison, NJ 08817", duration: 18, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"},
-        {title: "costco", location: "100 Vineyard Rd, Edison, NJ 08817", duration: 10, type: "list", content: ["Cook", "Clean"]},
-        {title: "costco", location: "305 Vineyard Rd, Edison, NJ 08817", duration: 3, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"},
-        {title: "costco", location: "405 Vineyard Rd, Edison, NJ 08817", duration: 26, type: "list", content: ["Cook", "Clean"]},
-        {title: "costco", location: "50 Vineyard Rd, Edison, NJ 08817", duration: 102, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"}
-    ]
+    const startLoc = {title: "STARTcostco", address: "9 Matthew CT, Edison, NJ ", user_time: 30, type: "list", content: ["Cook", "Clean"]}
+    const endLoc = {title: "ENDcostco", address: "855 Grove Ave, Edison, NJ 08820", user_time: 65, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"}
+    const dummyData = AllData.current_run
+    //[
+    //    {title: "costco", address: "205 Vineyard Rd, Edison, NJ 08817", user_time: 108, type: "list", content: ["Cook", "Clean"]},
+    //    {title: "walmart", address: "2220 NJ-27, Edison, NJ 08817", user_time: 18, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"},
+    //    {title: "costco", address: "100 Vineyard Rd, Edison, NJ 08817", user_time: 10, type: "list", content: ["Cook", "Clean"]},
+    //    {title: "costco", address: "305 Vineyard Rd, Edison, NJ 08817", user_time: 3, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"},
+    //    {title: "costco", address: "405 Vineyard Rd, Edison, NJ 08817", user_time: 26, type: "list", content: ["Cook", "Clean"]},
+    //    {title: "costco", address: "50 Vineyard Rd, Edison, NJ 08817", user_time: 102, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"}
+    //]
 
     const [org, setOrg] = useState("")
     const [dest, setDest] = useState("")
@@ -43,11 +44,11 @@ const Map_Page = () => {
     const [waypoints, setwaypoints] = useState([])
     const waypts = () =>{
         dummyData.map((errand) =>
-            waypoints.push({location: errand.location, stopover: true})
+            waypoints.push({location: errand.address, stopover: true})
 
         )
-        setOrg(startLoc.location)
-        setDest(endLoc.location)
+        setOrg(startLoc.address)
+        setDest(endLoc.address)
         return waypoints;
     }
 
@@ -73,7 +74,7 @@ const Map_Page = () => {
             history.push("/login")
         }
         waypts()
-        console.log(AllData)
+        console.log (dummyData)
     }, [])
 
     return (
@@ -82,15 +83,15 @@ const Map_Page = () => {
                 <div className = "mappage_left_inner">
                     <h1 className = "mappage_title">Errands</h1>
 
-                    <Errand erName={startLoc.title} erDuration={startLoc.duration} erAddress={startLoc.location} type={startLoc.type} content={startLoc.content}/>
+                    <Errand erName={startLoc.title} erDuration={startLoc.user_time} erAddress={startLoc.address} type={startLoc.type} content={startLoc.content}/>
                     <Errand_Time time={mapData.routes[0].legs[0].duration.text}/>
                     {dummyData.map((errand, index) =>
                         <>
-                        <Errand erName={errand.title} erDuration={errand.duration} erAddress={errand.location} type={errand.type} content={errand.content}/>
+                        <Errand erName={errand.title} erDuration={errand.user_time} erAddress={errand.address} type={errand.type} content={errand.content}/>
                         <Errand_Time onLoad = {append()} time={mapData.routes[0].legs[index+1].duration.text}/>
                         </>
                     )}
-                    <Errand erName={endLoc.title} erDuration={endLoc.duration} erAddress={endLoc.location} type={endLoc.type} content={endLoc.content}/>
+                    <Errand erName={endLoc.title} erDuration={endLoc.user_time} erAddress={endLoc.address} type={endLoc.type} content={endLoc.content}/>
                     <Errand_Time time={""}/>
 
                 </div>
