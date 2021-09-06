@@ -94,7 +94,7 @@ function handleDrag() {
           onDragStart={handleDrag}
         >
           <button href="#" onClick={handleClick} class="switch">
-            Click me
+            Location
             </button>
           <Marker position={userLoc} zIndex={100}/>
           <DirectionsService options ={{
