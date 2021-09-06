@@ -1,72 +1,243 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
 
 /* wrapper / base */
+.errands_container {
+  height: calc(100vh - 6em);
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.errands_container_overlay_visible {
+  height: calc(100vh - 6em);
+  width: 100vw;
+  z-index: 1;
+  position: absolute;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.50;
+  background-color: black;
+}
+
+.errands_container_overlay_invisible {
+  height: calc(100vh - 6em);
+  width: 100vw;
+  z-index: 1;
+  position: absolute;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.00;
+  background-color: black;
+}
+
+.errands_container_overlay_add_outer {
+  height: 90%;
+  width: 60%;
+  z-index: 2;
+}
+
+.errands_container_overlay_add_inner {
+  height: 70%;
+  z-index: 3;
+}
+
+.errands_container_inner {
+  height: 90%;
+  width: 60%;
+}
+
 .errands__wrapper{
-  margin: 10%;
+  overflow-y: scroll;
+  height: 70%;
+  padding: 5px;
+}
+
+.errands__wrapper__shaded {
+  background-color: black;
+  padding: 10%;
 }
 
 .errands__wrapper .Title{
   font-weight: 500;
-  font-size: 3em;
+  font-size: 5em;
+}
+
+.errands-modify-container {
+  display: flex;
+}
+
+.errand-modify-link {
+  cursor: pointer;
 }
 
 /* accordion */
 
 .accordion {
-    background-color: #F2F3F7;
-    cursor: pointer;
-    letter-spacing: 0.04rem;
-    
-    margin: 0.5em;
-    padding: 1.5em;
-    width: 100%;
-
-    border: 0px solid transparent;
-    border-radius: 15px;
-    outline: none;
-
-    text-align: left;
-    font-size: 15px;
-    
-    transition: 0.4s;
-  }
+  background-color: #F2F3F7;
+  cursor: pointer;
+  letter-spacing: 0.04rem;
   
-  .accordion-prev{
-    display: flex;
-    flex-direction: row;
-  }
+  width: 100%;
+  min-height: 2px;
 
-  .accordion-left{
-    width: 100%;
-  }
-  .accordion-title{
-    color: #000000;
-    width: 100%;
-  }
-  .accordion-location span{
-    color: #3F3D56;
-  }
+  border: 0px solid transparent;
+  border-radius: 15px;
+  outline: none;
+
+  text-align: left;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.accordion-item {
+  padding: 20px;
+}
+
+.accordion-prev{
+  display: flex;
+  flex-direction: row;
+}
+
+.accordion-left{
+  width: 100%;
+}
+.accordion-title{
+  color: #000000;
+  width: 100%;
+  padding-bottom: 5px;
+}
+.accordion-location span{
+  color: #3F3D56;
+}
 
 
 
 
-  .active, .accordion:hover {
-    background-color: #ececec;
-  }
+.active, .accordion:hover {
+  background-color: #ececec;
+}
+
+.accordion-button{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
   
-  .accordion-button{
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    
-    width: 100%;
-    height:100%;
-  }
-  
-  .panel {
-    padding: 0 18px;
-    background-color: white;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
-  }
+  width: 100%;
+  height:100%;
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.accordian-misc-1 {
+  font-weight: 700;
+}
+
+.accordion-notes {
+  display: flex;
+  flex-direction: column;
+}
+
+.accordion-list-item {
+  padding-bottom: 5px;
+  margin: 0;
+}
+
+/* Add Errand */
+
+.adder_1 {
+  height: calc(100vh - 6em);
+  width: 100vw;
+  z-index: 2;
+  position: absolute;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add_errand_container {
+  margin-top: 5em;
+  height: 100%;
+  width: 100%;
+  z-index: 4;
+  background-color: #FFFFFF;
+  border-radius: 15px;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add_errand_container_inner {
+  z-index: 5;
+  opacity: 100;
+  height: 90%;
+  width: 90%;
+  pointer-events: all;
+}
+
+.adder_2 {
+  pointer-events: all;
+}
+
+.errand_adder_form {
+  display: flex;
+  flex-direction: row;
+}
+
+.errand_adder_input {
+  width: 20em;
+  height: 65px;
+  background-color: #F2F3F7;
+  border: 0px solid black;
+  border-radius: 10px;
+  font-family: 'Roboto';
+  font-size: 15px;
+  margin-bottom: 20px;
+  padding-left: 15px;
+}
+
+.errand_adder_form_left {
+  width: 50%;
+  border-right: 2px solid black;
+}
+
+.errand_adder_form_right {
+  width: 50%;
+  padding-left: 20px;
+}
+
+.temp1 {
+
+}
+
+.errand_adder_form_button {
+  height: 40px;
+  width: 100px;
+  left: 1062px;
+  top: 35px;
+  border-radius: 0px;
+  background: #0C66FF;
+  border-color: white;
+  box-shadow: none;
+  border-width: 0px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 15px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Scrollbar */
