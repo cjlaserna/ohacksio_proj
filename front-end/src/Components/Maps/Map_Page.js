@@ -11,24 +11,8 @@ import AllData from "../../db.json";
 
 const key = "AIzaSyCj_1kmVhtPyMCGU9VO_QZ6JtpQ5fnP_X8"
 
-const Map_Page = () => {
+const Map_Page = ({ dummyData, startLoc, endLoc }) => {
     let history = useHistory();
-    const [serverMapData, setServerMapData] = useState("null")
-
-    const userIDtoRunObject = (event) =>{
-        const userToken = window.localStorage.getItem("token")
-        axios.post("http://localhost:3001/runID", {
-            _id: userToken
-        })
-        .then(response => {
-            setServerMapData(response.data);
-            console.log(serverMapData)
-        });
-    };
-
-    const startLoc = {title: "STARTcostco", address: "9 Matthew CT, Edison, NJ ", user_time: 30, type: "list", content: ["Cook", "Clean"]}
-    const endLoc = {title: "ENDcostco", address: "855 Grove Ave, Edison, NJ 08820", user_time: 65, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"}
-    const dummyData = AllData.current_run
     //[
     //    {title: "costco", address: "205 Vineyard Rd, Edison, NJ 08817", user_time: 108, type: "list", content: ["Cook", "Clean"]},
     //    {title: "walmart", address: "2220 NJ-27, Edison, NJ 08817", user_time: 18, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"},
@@ -45,12 +29,12 @@ const Map_Page = () => {
     const waypts = () =>{
         dummyData.map((errand) =>
             waypoints.push({location: errand.address, stopover: true})
-
         )
         setOrg(startLoc.address)
         setDest(endLoc.address)
         return waypoints;
     }
+
 
   const [mapData, setMapData] = useState({routes: [{legs: [{duration: {text: "Duration Not Loaded"}},{duration: {text: "Duration Not Loaded"}},]}]})
   const [checker, setChecker] = useState(0)
@@ -69,12 +53,10 @@ const Map_Page = () => {
 
     useEffect(() => {
         const userToken = window.localStorage.getItem("token")
-        userIDtoRunObject();
         if (userToken == null) {
             history.push("/login")
         }
         waypts()
-        console.log (dummyData)
     }, [])
 
     return (

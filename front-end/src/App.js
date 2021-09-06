@@ -6,8 +6,8 @@ import RegisterError from './Components/LoginRegister/RegisterError'
 import Verification from './Components/LoginRegister/Verification';
 import MenuBar from './Components/MenuBar';
 import GoogleMap from './Components/Maps/GoogleMap';
-import Map_Page from './Components/Maps/Map_Page';
 import Dashboard from './Components/Dashboard/Dashboard';
+import Map_Page_Loader from './Components/Maps/Map_Page_Loader';
 
 import Errands from './Components/UserPages/Errands/Errands.js';
 
@@ -37,7 +37,7 @@ function App() {
     </Route>
 
     <Route exact path="/map">
-      <Map_Page/>
+      <Map_Page_Loader/>
     </Route>
 
     <Route exact path="/verify">
