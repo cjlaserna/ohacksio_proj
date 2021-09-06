@@ -1,46 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap%27");
 
 .errand-container {
-    width: 100%;
-    background-color: #F2F3F7;
-    border-radius: 15px;
-    
-}   
+  width: 100%;
+  background-color: #f2f3f7;
+  border-radius: 15px;
+}
+
+.errand-container:hover {
+  width: 100%;
+  background-color: #ececec;
+  border-radius: 15px;
+}
 
 .errand-container-inner {
-    padding-top: 20px;
-    padding-bottom: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .errand-title-time-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .errand-title {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 
-    text-transform: capitalize;
-    font-family: 'Inter';
-    font-size: 15px;
-    font-weight: 600;
+  text-transform: capitalize;
+  font-family: "Inter";
+  font-size: 15px;
+  font-weight: 600;
 }
 
 .errand-time {
-    padding: 0;
-    margin: 0;
-    font-size: 15px;
-    font-family: 'Inter';
+  padding: 0;
+  margin: 0;
+  font-size: 15px;
+  font-family: "Inter";
 }
 
 .errand-address {
-    font-family: 'Inter';
-    font-size: 15px;
-    color: #757575;
+  font-family: "Inter";
+  font-size: 15px;
+  color: #757575;
 }
 
 /* 
@@ -48,18 +53,18 @@ Classes for Errand_Time
 */
 
 .travel_time_container {
-    width: 100%;
-    justify-content: center;
-    display: flex;
-    
-    font-size: 15px;
-    color: #757575;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+
+  font-size: 15px;
+  color: #757575;
 }
 
 .travel_time_container p::before {
-    content: '- ';
+  content: "- ";
 }
 
 .travel_time_container p::after {
-    content: ' -';
+  content: " -";
 }
