@@ -44,10 +44,10 @@ const Map_Page = ({ dummyData, startLoc, endLoc }) => {
   const [checker, setChecker] = useState(0)
   const directionsCallback = (response) => {
     if (response !== null && response.status === 'OK') {
-        
+        if (checker<1){
             setMapData(response)
             setChecker(checker+1)
-          
+          }
       }
     }
 
@@ -65,9 +65,6 @@ const Map_Page = ({ dummyData, startLoc, endLoc }) => {
 
     useEffect(() => {
         setChecker(0)
-        console.log (startLoc)
-        console.log (endLoc)
-        console.log (dummyData)
     }, [dummyData, startLoc, endLoc])
 
     return (
