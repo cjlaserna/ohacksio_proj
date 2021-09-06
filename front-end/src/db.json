@@ -11,12 +11,12 @@
             "destination_type": "start"
         },
         {
-            "title": "Pick Up James @ Adventist Health",
-            "address": "1 Alexis Lane, Edison, NJ",
-            "user_time": 25,
-            "type": "notes",
-            "content": "Ear Appointment @ 2, bring kids",
-            "id": 2872394902,
+            "title": "Work Out",
+            "address": "188-10 Union Tpke, Fresh Meadows, NY 11366",
+            "user_time": 60,
+            "type": "list",
+            "content": ["Go to pool", "Go to gym"],
+            "id": 2,
             "destination_type": "errand"
         },
         {
@@ -25,7 +25,7 @@
             "user_time": 25,
             "type": "notes",
             "content": "Ear Appointment @ 2, bring kids",
-            "id": 2872,
+            "id": 3,
             "destination_type": "errand"
         }
     ]

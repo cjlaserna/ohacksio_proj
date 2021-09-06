@@ -23,7 +23,7 @@ const Errand = forwardRef( (props,ref ) => {
     
     let contentSwitch = (param) => {
         switch(param) {
-            case 'note':
+            case 'notes':
             return(<div className="accordion-notes"><p>{props.content}</p></div>);
             case'list':
             return( <div className="accordion-notes">{contentList(props.content)}</div> );
