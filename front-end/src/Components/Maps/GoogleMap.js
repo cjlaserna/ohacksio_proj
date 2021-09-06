@@ -9,12 +9,6 @@ const containerStyle = {
     height: '100%'
   };
 
-  const places = [
-    { latitude: 25.8103146, longitude: -80.1751609 },
-    { latitude: 27.9947147, longitude: -82.5943645 },
-    { latitude: 28.4813018, longitude: -81.4387899 }
-  ];
-  
 export default function SimpleMap({mapInfo}){
 
   const [center, setCenter] = useState({lat: -3.745,lng: -38.523})
@@ -60,7 +54,6 @@ function handleDrag() {
           mapContainerStyle={containerStyle}
           center={center}
           zoom={zoom}
-          markers={places}
           onDragStart={handleDrag}
         >
           <button href="#" onClick={handleClick} class="switch">
