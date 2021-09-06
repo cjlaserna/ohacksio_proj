@@ -13,7 +13,7 @@ const key = "AIzaSyCj_1kmVhtPyMCGU9VO_QZ6JtpQ5fnP_X8"
 const Map_Page = () => {
     let history = useHistory();
     const [serverMapData, setServerMapData] = useState()
-    
+
     const userIDtoRunObject = (event) =>{
         console.log("1")
         event.preventDefault();
@@ -45,9 +45,9 @@ const Map_Page = () => {
     const [tmode, setTmode] = useState("DRIVING")
     const [waypoints, setwaypoints] = useState([])
     const waypts = () =>{
-        dummyData.map((errand) => 
+        dummyData.map((errand) =>
             waypoints.push({location: errand.location, stopover: true})
-            
+
         )
         setOrg(startLoc.location)
         setDest(endLoc.location)
@@ -72,11 +72,11 @@ const Map_Page = () => {
     useEffect(() => {
         const userToken = window.localStorage.getItem("token")
         console.log("sdfsfdsfsd")
-        userIDtoRunObject();    
+        userIDtoRunObject();
         if (userToken == null) {
             //history.push("/login")
         }
-        console.log(waypts())
+        waypts()
     }, [])
 
     return (
@@ -84,10 +84,10 @@ const Map_Page = () => {
             <div className = "mappage_left">
                 <div className = "mappage_left_inner">
                     <h1 className = "mappage_title">Errands</h1>
-                    
+
                     <Errand erName={startLoc.title} erDuration={startLoc.duration} erAddress={startLoc.location}/>
                     <Errand_Time time={mapData.routes[0].legs[0].duration.text}/>
-                    {dummyData.map((errand, index) => 
+                    {dummyData.map((errand, index) =>
                         <>
                         <Errand erName={errand.title} erDuration={errand.duration} erAddress={errand.location}/>
                         <Errand_Time onLoad = {append()} time={mapData.routes[0].legs[index+1].duration.text}/>
