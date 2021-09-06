@@ -29,7 +29,7 @@ const Login = (props) => {
                 history.push("/registration-failed")
             }
             else{
-                history.push({pathname: "/Verify", state: response.data})
+                history.push({pathname: "/verify", state: response.data})
             }
         });
     };

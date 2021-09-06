@@ -3,9 +3,14 @@ import './map_page.css'
 import GoogleMap from './GoogleMap.js'
 import Errand from './Errand.js'
 import Errand_Time from './Errand_Time.js'
+import { useEffect } from "react"
+import { useHistory } from "react-router";
+
+
 
 const Map_Page = () => {
-
+    let history = useHistory();
+    
     // const userIDtoRunObject = (event) =>{
     //     event.preventDefault();
     //     axios.post("http://localhost:3001/runID", {
@@ -15,6 +20,13 @@ const Map_Page = () => {
     //         //response is run object
     //     });
     // };
+
+    useEffect(() => {
+        const userToken = window.localStorage.getItem("token")
+        if (userToken == null) {
+            history.push("/login")
+        }
+    }, [])
 
     return (
         <div className = "mappage_fullview">

@@ -26,7 +26,7 @@ const Login = () => {
            else{
             const id = response.data.shift();
             window.localStorage.setItem('token', id._id);
-            history.push("/main-page")
+            history.push("/errands")
            }});
     };
 

@@ -1,7 +1,22 @@
 import React from 'react'
 import './errand.css'
 
+import { useEffect } from "react"
+import { useHistory } from "react-router";
+
+
+
 const Errand = () => {
+    
+    let history = useHistory();
+    useEffect(() => {
+        const userToken = window.localStorage.getItem("token")
+        if (userToken == null) {
+            history.push("/login")
+        }
+    }, [])
+
+
     return (
         <div className = "errand-container">
             <div className = "errand-container-inner">
