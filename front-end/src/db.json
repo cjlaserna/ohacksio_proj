@@ -2,11 +2,11 @@
     "createdBy": "2j89fjq89j2q98",
     "run": [
         {
-            "title": "Shopping at Walmart",
-            "address": "205 Vineyard Road, Edison, NJ",
-            "user_time": 25,
-            "type": "list",
-            "content": [ "Tomato", "Milk" ],
+            "title": "Pick Up Package From UPS",
+            "address": "176-25 Union Tpke, Queens, NY 11366",
+            "user_time": 15,
+            "type": "notes",
+            "content": "Package is from Aditya",
             "id": 1,
             "destination_type": "start"
         },

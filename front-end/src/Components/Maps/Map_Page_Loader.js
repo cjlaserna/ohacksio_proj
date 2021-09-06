@@ -36,8 +36,8 @@ const Map_Page_Loader = () => {
         });
     }
 
-    const [origin, setOrigin] = useState({title: "STARTcostco", address: "855 Grove Ave, Edison, NJ 08820", user_time: 30, type: "list", content: ["Cook", "Clean"]})
-    const [endpt, setEndpt] = useState({title: "ENDcostco", address: "855 Grove Ave, Edison, NJ 08820", user_time: 65, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"})
+    const [origin, setOrigin] = useState({title: "START", address: "166th St Flushing, NY 11366", user_time: 30, type: "list", content: ["Cook", "Clean"]})
+    const [endpt, setEndpt] = useState({title: "END", address: "166th St Flushing, NY 11366", user_time: 65, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"})
     const [finalArray, setFinalArray] = useState(AllData.run)
     const [tempArray, setTempArray] = useState([])
 
