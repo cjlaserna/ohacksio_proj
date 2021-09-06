@@ -5,7 +5,7 @@ import axios from 'axios';
 
 import {useState, useEffect} from 'react'
 
-const AddErrand = ({modifyShowAddPage, contentArray, modifyContentArray, modifyVisible}) => {
+const AddErrand = ({modifyShowAddPage, contentArray, modifyContentArray, modifyVisible, runID}) => {
 
     const [titleType, setTitleType] = useState("");
     const [addressType, setAddressType] = useState("");
@@ -42,8 +42,8 @@ const AddErrand = ({modifyShowAddPage, contentArray, modifyContentArray, modifyV
 
         const userToken = window.localStorage.getItem("token")
 
-        axios.post("http://localhost:3001/insert", {
-            createdBy:userToken,
+        axios.post("http://localhost:3001/update", {
+            _id: runID,
             run: temp_1,
         })
 
