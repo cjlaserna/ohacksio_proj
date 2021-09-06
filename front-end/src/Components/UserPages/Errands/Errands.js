@@ -22,10 +22,10 @@ const Errands = () => {
     useEffect(() => {
         const userToken = window.localStorage.getItem("token")
         if (userToken == null) {
-            //history.push("/login")
+            history.push("/login")
         }
         console.log("Hello Snake");
-        modifyContentArray(AllData.clients[0].current_run);
+        modifyContentArray(AllData.current_run);
     }, []);
 
     const showAddComponent = () => {

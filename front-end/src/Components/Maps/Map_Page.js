@@ -7,6 +7,7 @@ import { useState, useEffect } from "react"
 import { useHistory } from "react-router";
 import { GoogleMap, LoadScript, DirectionsService, DirectionsRenderer, Circle, Marker } from '@react-google-maps/api';
 import axios from 'axios'
+import AllData from "../../db.json";
 
 const key = "AIzaSyCj_1kmVhtPyMCGU9VO_QZ6JtpQ5fnP_X8"
 
@@ -69,9 +70,10 @@ const Map_Page = () => {
         const userToken = window.localStorage.getItem("token")
         userIDtoRunObject();
         if (userToken == null) {
-            //history.push("/login")
+            history.push("/login")
         }
         waypts()
+        console.log(AllData)
     }, [])
 
     return (
