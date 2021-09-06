@@ -17,6 +17,7 @@ oAuth.setCredentials({refresh_token: refreshToken})
 
 const UserModel = require("./models/User");
 const RunModel = require("./models/Run");
+const { response } = require("express");
 
 app.use(express.json());    
 app.use(cors());
@@ -96,11 +97,14 @@ app.post('/register', async (req, res) =>{//authenticating and fetching user log
 app.post("/runID", async (req, res)=>{ // fetching data from frontend
     console.log("hope this runs")
     const _id = req.body._id;
-    UserModel.findById(_id, async (err, uModel)=>{
-        RunModel.findbyId(uModel.current_run, (err, rModel)=>{
-            res.send(rModel);
-       });
+    console.log(_id)
+    let ph = "god"
+    await UserModel.findById(_id, async (err, uModel)=>{
+        await RunModel.findById(uModel.current_run  , async (err, rModel)=>{
+            res.send(rModel)
+        });
     });
+
 }); 
 
 

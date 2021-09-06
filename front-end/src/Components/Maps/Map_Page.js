@@ -15,9 +15,6 @@ const Map_Page = () => {
     const [serverMapData, setServerMapData] = useState()
 
     const userIDtoRunObject = (event) =>{
-        console.log("1")
-        event.preventDefault();
-        console.log("2")
         const userToken = window.localStorage.getItem("token")
         axios.post("http://localhost:3001/runID", {
             _id: userToken
