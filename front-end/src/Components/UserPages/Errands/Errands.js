@@ -16,8 +16,13 @@ const Errands = () => {
     const [visible, modifyVisible] = useState("errands_container_overlay_invisible");
     const [idCounter, modifyidCounter] = useState(0);
     const [newErrandObject, modifyNewErrandObject] = useState([]);
-    const [runID, modifyRunID] = useState("");
 
+    // console.log("Obama");
+    // modifyContentArray(AllData.run);
+    // console.log(AllData.run);
+    // console.log(AllData);
+    // console.log(contentArray);
+    
     let history = useHistory();
 
     useEffect(() => {
@@ -33,7 +38,6 @@ const Errands = () => {
         .then(response => {
             console.log(response.data)//response.data is what we use
             modifyContentArray(response.data.run);
-            modifyRunID(response.data._id);
         });
 
     }, []);
@@ -66,7 +70,7 @@ const Errands = () => {
                 <div className = "adder_1">
                     <div className = "errands_container_overlay_add_outer">
                         <div className = "errands_container_overlay_add_inner">
-                            {showAddPage ? <AddErrand modifyShowAddPage = {modifyShowAddPage} contentArray = {contentArray} modifyContentArray = {modifyContentArray} modifyVisible = {modifyVisible} runID = {runID}/> : <div></div>}
+                            {showAddPage ? <AddErrand modifyShowAddPage = {modifyShowAddPage} contentArray = {contentArray} modifyContentArray = {modifyContentArray} modifyVisible = {modifyVisible}/> : <div></div>}
                         </div>
                     </div>
                 </div>
