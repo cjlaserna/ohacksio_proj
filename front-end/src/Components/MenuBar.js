@@ -65,7 +65,7 @@ class MenuBar extends React.Component {
                                     Map
                                 </li>
                             </NavLink>
-                            <NavLink activeClassName="Nav__item--active" className="Nav__link" to="/registration">
+                            <NavLink activeClassName="Nav__item--active" className="Nav__link" to="/past-errands">
                                 <li className="Nav__item">
                                     Past Errands
                                 </li>
