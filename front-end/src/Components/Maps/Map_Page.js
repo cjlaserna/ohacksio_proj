@@ -70,11 +70,6 @@ const Map_Page = ({ dummyData, startLoc, endLoc }) => {
         waypts()
     }, [dummyData])
 
-    function handleClick(e) {
-        e.preventDefault();
-        console.log(waypoints)
-    }
-
     return (
         <div className = "mappage_fullview">
             <div className = "mappage_left">
@@ -94,7 +89,6 @@ const Map_Page = ({ dummyData, startLoc, endLoc }) => {
                 </div>
             </div>
             <div className = "mappage_right">
-            <button href="#" onClick={handleClick}>TEST</button>
                 <GoogleMaps mapInfo={mapData}/>
                         
                 <LoadScript googleMapsApiKey={key}>

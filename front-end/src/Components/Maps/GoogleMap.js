@@ -37,6 +37,11 @@ export default function SimpleMap({mapInfo}){
     return () => clearInterval(interval);
   }, [locationer]);
 
+  function handleClick(e) {
+    e.preventDefault();
+    setLocationer(!locationer);
+}
+
 function handleDrag() {
   setLocationer(false);
 }
@@ -51,7 +56,9 @@ function handleDrag() {
           zoom={zoom}
           onDragStart={handleDrag}
         >
+          <button href="#" onClick={handleClick} class="switch">
             GPS
+            </button>
           <Marker position={userLoc} zIndex={100}/>
           <DirectionsRenderer directions={mapInfo}/>
         </GoogleMap>
