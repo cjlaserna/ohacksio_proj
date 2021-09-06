@@ -46,12 +46,10 @@ const Errands = () => {
             _id: userToken//user token stored in localstorage
         })
         .then(response => {
-            console.log("Data under this");
-            console.log(response.data)//response.data is what we use
-
+            if(!(response.data.run==null)){
             modifyContentArray(response.data.run);
-
             modifyRunID(response.data._id);
+            }
         });
         
     }, []);
