@@ -79,7 +79,7 @@ const Map_Page = ({ dummyData, startLoc, endLoc }) => {
                     <Errand_Time time={mapData.routes[0].legs[0].duration.text}/>
                     {dummyData.map((errand, index) =>
                         <>
-                        <Errand erName={errand.title} erDuration={errand.user_time} erAddress={errand.address} type={errand.type} content={errand.content}/>
+                        <Errand erName={errand.title} erDuration={parseInt(errand.user_time)} erAddress={errand.address} type={errand.type} content={errand.content}/>
                         <Errand_Time onLoad = {append()} time={mapData.routes[0].legs[index+1].duration.text}/>
                         </>
                     )}
