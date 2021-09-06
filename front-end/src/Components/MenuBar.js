@@ -25,6 +25,8 @@ class MenuBar extends React.Component {
     }
   };
 
+  
+
   render() {
     const userToken = window.localStorage.getItem("token")
     return (
@@ -34,6 +36,7 @@ class MenuBar extends React.Component {
             <div className="Nav__right">
                     { userToken === null ? 
                         <ul className="Nav__item-wrapper">
+                          
                             <NavLink exact activeClassName="Nav__item--active" className="Nav__link" to="/">
                                 <li className="Nav__item">
                                     Home

@@ -29,9 +29,11 @@ const Login = () => {
             history.push("/main-page")
            }});
     };
+
+    
+
     return (
         <div className = "login">
-
             <div className = "main-login-content">
                 <div className = "main-login-content-inner">
                     <div className = "login-left">

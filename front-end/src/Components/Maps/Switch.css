@@ -1,0 +1,11 @@
+/* The switch - the box around the slider */
+.switch {
+  position: absolute;
+  z-index: 100;
+  display: inline-block;
+  width: 85px;
+  height: 40px;
+  top: 2px;
+  left: 180px;
+  border-radius: 2px;
+}
