@@ -95,8 +95,8 @@ app.post('/register', async (req, res) =>{//authenticating and fetching user log
 
 app.post("/runID", async (req, res)=>{ // fetching data from frontend
     const _id = req.body._id;
-    await UserModel.findById(_id, (err, uModel)=>{
-       await RunModel.findbyId(uModel.current_run, (err, rModel)=>{
+    UserModel.findById(_id, async (err, uModel)=>{
+        RunModel.findbyId(uModel.current_run, (err, rModel)=>{
             res.send(rModel);
        });
     });
