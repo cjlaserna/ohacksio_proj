@@ -1,61 +1,32 @@
 {
-    "clients": [
+    "createdBy": "2j89fjq89j2q98",
+    "run": [
         {
+            "title": "Shopping at Walmart",
+            "address": "205 Vineyard Road, Edison, NJ",
+            "user_time": 25,
+            "type": "list",
+            "content": [ "Tomato", "Milk" ],
             "id": 1,
-            "name": "Aditya Shelke",
-            "current_run": [
-                {
-                    "title": "Shopping at Walmart",
-                    "address": "205 Vineyard Road, Edison, NJ",
-                    "user_time": 25,
-                    "type": "list",
-                    "content": [ "Tomato", "Milk" ],
-                    "id": 1,
-                    "destination_type": "start"
-                },
-                {
-                    "title": "Pick Up James @ Adventist Health",
-                    "address": "19 Alexis Lane, Edison, NJ",
-                    "user_time": 25,
-                    "type": "notes",
-                    "content": "Ear Appointment @ 2, bring kids",
-                    "id": 2872394902,
-                    "destination_type": "end"
-                }
-            ],
-            "past_runs": [
-                
-            ]
-
+            "destination_type": "start"
         },
         {
-            "id": 2,
-            "name": "Aditya Shelke",
-            "current_run": [
-                {
-                    "type": "Pick Up",
-                    "Address": "19 Alexis Lane, Edison, NJ",
-                    "user_time": 25
-                },
-                {
-                    "type": "Shopping",
-                    "Address": "205 Vineyard Road, Edison, NJ",
-                    "user_time": 35
-                },
-                {
-
-                },
-                {
- 
-                }
-            ],
-            "past_runs": [
-                
-            ]
-
+            "title": "Pick Up James @ Adventist Health",
+            "address": "1 Alexis Lane, Edison, NJ",
+            "user_time": 25,
+            "type": "notes",
+            "content": "Ear Appointment @ 2, bring kids",
+            "id": 2872394902,
+            "destination_type": "errand"
         },
         {
-
+            "title": "Pick Up James @ Adventist Health",
+            "address": "19 Alexis Lane, Edison, NJ",
+            "user_time": 25,
+            "type": "notes",
+            "content": "Ear Appointment @ 2, bring kids",
+            "id": 2872,
+            "destination_type": "errand"
         }
     ]
 }

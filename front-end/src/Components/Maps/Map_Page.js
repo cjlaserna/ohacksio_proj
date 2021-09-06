@@ -7,10 +7,11 @@ import { useState, useEffect } from "react"
 import { useHistory } from "react-router";
 import { GoogleMap, LoadScript, DirectionsService, DirectionsRenderer, Circle, Marker } from '@react-google-maps/api';
 import axios from 'axios'
+import AllData from "../../db.json";
 
 const key = "AIzaSyCj_1kmVhtPyMCGU9VO_QZ6JtpQ5fnP_X8"
 
-const Map_Page = () => {
+const Map_Page = ({ dummyData, startLoc, endLoc }) => {
     let history = useHistory();
     const [serverMapData, setServerMapData] = useState("null")
 
@@ -25,30 +26,19 @@ const Map_Page = () => {
         });
     };
 
-    const startLoc = {title: "STARTcostco", location: "9 matthew ct edison nj", duration: 30, type: "list", content: ["Cook", "Clean"]}
-    const endLoc = {title: "ENDcostco", location: "jps high school", duration: 65, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"}
-    const dummyData = [
-        {title: "costco", location: "205 Vineyard Rd, Edison, NJ 08817", duration: 108, type: "list", content: ["Cook", "Clean"]},
-        {title: "walmart", location: "2220 NJ-27, Edison, NJ 08817", duration: 18, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"},
-        {title: "costco", location: "100 Vineyard Rd, Edison, NJ 08817", duration: 10, type: "list", content: ["Cook", "Clean"]},
-        {title: "costco", location: "305 Vineyard Rd, Edison, NJ 08817", duration: 3, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"},
-        {title: "costco", location: "405 Vineyard Rd, Edison, NJ 08817", duration: 26, type: "list", content: ["Cook", "Clean"]},
-        {title: "costco", location: "50 Vineyard Rd, Edison, NJ 08817", duration: 102, type: "note", content: "adwihahwjdhjiadkjhadkjhawhkj"}
-    ]
-
     const [org, setOrg] = useState("")
     const [dest, setDest] = useState("")
     const [tmode, setTmode] = useState("DRIVING")
     const [waypoints, setwaypoints] = useState([])
     const waypts = () =>{
         dummyData.map((errand) =>
-            waypoints.push({location: errand.location, stopover: true})
-
+            waypoints.push({location: errand.address, stopover: true})
         )
-        setOrg(startLoc.location)
-        setDest(endLoc.location)
+        setOrg(startLoc.address)
+        setDest(endLoc.address)
         return waypoints;
     }
+
 
   const [mapData, setMapData] = useState({routes: [{legs: [{duration: {text: "Duration Not Loaded"}},{duration: {text: "Duration Not Loaded"}},]}]})
   const [checker, setChecker] = useState(0)
@@ -67,12 +57,15 @@ const Map_Page = () => {
 
     useEffect(() => {
         const userToken = window.localStorage.getItem("token")
-        userIDtoRunObject();
         if (userToken == null) {
-            //history.push("/login")
+            history.push("/login")
         }
         waypts()
     }, [])
+
+    useEffect(() => {
+        setChecker(0)
+    }, [dummyData, startLoc, endLoc])
 
     return (
         <div className = "mappage_fullview">
@@ -80,15 +73,15 @@ const Map_Page = () => {
                 <div className = "mappage_left_inner">
                     <h1 className = "mappage_title">Errands</h1>
 
-                    <Errand erName={startLoc.title} erDuration={startLoc.duration} erAddress={startLoc.location} type={startLoc.type} content={startLoc.content}/>
+                    <Errand erName={startLoc.title} erDuration={startLoc.user_time} erAddress={startLoc.address} type={startLoc.type} content={startLoc.content}/>
                     <Errand_Time time={mapData.routes[0].legs[0].duration.text}/>
                     {dummyData.map((errand, index) =>
                         <>
-                        <Errand erName={errand.title} erDuration={errand.duration} erAddress={errand.location} type={errand.type} content={errand.content}/>
+                        <Errand erName={errand.title} erDuration={errand.user_time} erAddress={errand.address} type={errand.type} content={errand.content}/>
                         <Errand_Time onLoad = {append()} time={mapData.routes[0].legs[index+1].duration.text}/>
                         </>
                     )}
-                    <Errand erName={endLoc.title} erDuration={endLoc.duration} erAddress={endLoc.location} type={endLoc.type} content={endLoc.content}/>
+                    <Errand erName={endLoc.title} erDuration={endLoc.user_time} erAddress={endLoc.address} type={endLoc.type} content={endLoc.content}/>
                     <Errand_Time time={""}/>
 
                 </div>
