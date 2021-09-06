@@ -109,16 +109,25 @@ app.post("/runID", async (req, res)=>{ // fetching data from frontend
 
 
 app.post("/insert", async (req, res)=>{ // fetching data from frontend
+    console.log("i hate aditya shelke")
     const createdBy = req.body.createdBy;
     const run = req.body.run;
     const Run = RunModel({createdBy:createdBy, run:run})
     try
     {
-        await run.save();
-        res.send(run._id);
+        await Run.save();
+        res.send(Run._id);
 
     }catch(err){
     }
+}); 
+
+app.put("/update", async (req, res)=>{ // fetching data from frontend
+    const run = req.body.run;
+    const _id = req.body._id;
+    await RunModel.findById(_id, (err, rModel)=>{
+        rModel.save();
+     });
 }); 
 
 

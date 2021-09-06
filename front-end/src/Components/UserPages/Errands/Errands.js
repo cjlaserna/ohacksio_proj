@@ -18,8 +18,8 @@ const Errands = () => {
     const [newErrandObject, modifyNewErrandObject] = useState([]);
 
     // console.log("Obama");
-    // modifyContentArray(AllData.current_run);
-    // console.log(AllData.current_run);
+    // modifyContentArray(AllData.run);
+    // console.log(AllData.run);
     // console.log(AllData);
     // console.log(contentArray);
     
@@ -31,7 +31,15 @@ const Errands = () => {
             history.push("/login")
         }
         console.log("Hello Snake");
-        modifyContentArray(AllData.current_run);
+
+        axios.post("http://localhost:3001/runID", {
+            _id: userToken//user token stored in localstorage
+        })
+        .then(response => {
+            console.log(response.data)//response.data is what we use
+            modifyContentArray(response.data.run);
+        });
+
     }, []);
 
     const showAddComponent = () => {

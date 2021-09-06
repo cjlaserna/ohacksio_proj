@@ -42,15 +42,11 @@ const AddErrand = ({modifyShowAddPage, contentArray, modifyContentArray, modifyV
 
         const userToken = window.localStorage.getItem("token")
 
-        const tempObject = {
-            "createdBy": userToken,
-            "current_run": temp_1
-        }
+        axios.post("http://localhost:3001/insert", {
+            createdBy:userToken,
+            run: temp_1,
+        })
 
-        console.log("Object");
-        console.log(temp_1);
-        console.log("Sending Data");
-        console.log(tempObject);
 
         modifyVisible("errands_container_overlay_invisible")
         modifyShowAddPage(false);
