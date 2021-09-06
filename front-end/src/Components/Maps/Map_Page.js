@@ -12,6 +12,7 @@ const key = "AIzaSyCj_1kmVhtPyMCGU9VO_QZ6JtpQ5fnP_X8"
 
 const Map_Page = () => {
     let history = useHistory();
+    const [serverMapData, setServerMapData] = useState()
     
     const userIDtoRunObject = (event) =>{
         event.preventDefault();
@@ -20,7 +21,8 @@ const Map_Page = () => {
             _id: userToken
         })
         .then(response => {
-            console.log(response)
+            setServerMapData(response)
+            console.log(serverMapData)
         });
     };
 
