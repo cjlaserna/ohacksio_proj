@@ -21,11 +21,7 @@ const AddErrand = () => {
                             <option value = "Notes">Notes</option>
                             <option value = "Checklist">Checklist</option>
                         </select>
-                        {dropDownTye === "Notes" ? 
-                            <div>
-                                
-                            </div>
-                        }
+                        
                     </div>
                 </form>
             </div>
