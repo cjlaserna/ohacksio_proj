@@ -60,19 +60,20 @@ const AddErrand = ({modifyShowAddPage, contentArray, modifyContentArray, modifyV
         console.log("snake");
         console.log(contentArray);
 
-        for(let i = 0; i < options_temp.length; i++) {
+        for(let i = 0; i < contentArray.length; i++) {
             console.log(contentArray[i]);
             console.log("Bruh");
             console.log(contentArray.destination_type);
-           // if (contentArray[i].destination_type === "start") {
-             //   options_temp.splice(0, 1);
-            //}
-           // //f (contentArray[i].destination_type === "end") {
-            //    options_temp.splice(1, 1);
-           // }
+           if (contentArray[i].destination_type === "start") {
+               options_temp.splice(0, 1);
+            }
+           if (contentArray[i].destination_type === "end") {
+               options_temp.splice(1, 1);
+           }
         }
-
+        console.log("options and stuff");
         console.log(options_temp);
+        setOptions(options_temp);
 
        // setOptions(options_temp);
     }, [contentArray]);

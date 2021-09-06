@@ -11,16 +11,7 @@ import AddErrand from './AddErrand.js'
 const Errands = () => {
     const [isActive, setIsActive] = useState(false);
     const clientID = 0 //placeholder for login / client id
-    const [contentArray, modifyContentArray] = useState([
-        {
-            "title": "Shopping at Walmart",
-            "address": "205 Vineyard Road, Edison, NJ",
-            "user_time": 25,
-            "type": "list",
-            "content": [ "Tomato", "Milk" ],
-            "id": 1,
-            "destination_type": "start"
-        },]) // change 0 to client id
+    const [contentArray, modifyContentArray] = useState([]) // change 0 to client id
     const [showAddPage, modifyShowAddPage] = useState(false);
     const [visible, modifyVisible] = useState("errands_container_overlay_invisible");
     const [idCounter, modifyidCounter] = useState(0);
@@ -49,9 +40,16 @@ const Errands = () => {
             console.log("Data under this");
             console.log(response.data)//response.data is what we use
 
-            modifyContentArray(response.data.run);
+            if (response.data.run === undefined) {
+                modifyContentArray([]);
+                console.log("null data");
+            }
+            else {
+                modifyContentArray(response.data.run);
+                console.log(response.data.run);
+                modifyRunID(response.data._id);
+            }
 
-            modifyRunID(response.data._id);
         });
         
     }, []);
