@@ -3,18 +3,16 @@
     "run": [
         {
             "title": "Shopping at Walmart",
-            "address": "9 matthew ct",
-            "location": "9 matthew ct",
+            "address": "2220 NJ-27, Edison, NJ 08817",
             "user_time": 25,
             "type": "list",
             "content": [ "Tomato", "Milk" ],
             "id": 1,
-            "destination_type": "start"
+            "destination_type": "errand"
         },
         {
             "title": "Bruh 2",
             "address": "1 Alexis Lane, Edison, NJ",
-            "location": "1 Alexis Lane, Edison, NJ",
             "user_time": 25,
             "type": "notes",
             "content": "Ear Appointment @ 2, bring kids",
@@ -22,24 +20,22 @@
             "destination_type": "errand"
         },
         {
-            "title": "End",
-            "address": "village pointe edison nj",
-            "location": "10 Alexis Lane, Edison, NJ",
+            "title": "Leave Home",
+            "address": "19 Alexis Lane Edison NJ",
             "user_time": 25,
             "type": "notes",
-            "content": "Ear Appointment @ 2, bring kids",
+            "content": "My House",
             "id": 2872,
-            "destination_type": "end"
+            "destination_type": "start"
         },
         {
-            "title": "Bruh 3",
+            "title": "Go Back Home",
             "address": "19 Alexis Lane, Edison, NJ",
-            "location": "19 Alexis Lane, Edison, NJ",
-            "user_time": 25,
+            "user_time": 1,
             "type": "notes",
-            "content": "Ear Appointment @ 2, bring kids",
+            "content": "My House",
             "id": 2872,
-            "destination_type": "errand"
+            "destination_type": "end"
         }
         
     ]

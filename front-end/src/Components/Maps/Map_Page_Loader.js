@@ -29,7 +29,7 @@ const Map_Page_Loader = () => {
 
     const sortArray = () => {
         console.log("sorting")
-        arr.forEach(element => {
+        AllData.run.forEach(element => {
             if(element.destination_type=="start"){
                 setOrigin(element)
                 console.log(element)
