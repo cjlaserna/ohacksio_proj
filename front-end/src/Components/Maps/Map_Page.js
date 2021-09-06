@@ -18,9 +18,9 @@ const Map_Page = () => {
         {title: "costco", location: "205 Vineyard Rd, Edison, NJ 08817", duration: "30 mins"},
         {title: "walmart", location: "2220 NJ-27, Edison, NJ 08817", duration: "15 mins"},
         {title: "costco", location: "100 Vineyard Rd, Edison, NJ 08817", duration: "30 mins"},
-        {title: "costco", location: "205 Vineyard Rd, Edison, NJ 08817", duration: "30 mins"},
-        {title: "costco", location: "205 Vineyard Rd, Edison, NJ 08817", duration: "30 mins"},
-        {title: "costco", location: "205 Vineyard Rd, Edison, NJ 08817", duration: "30 mins"}
+        {title: "costco", location: "305 Vineyard Rd, Edison, NJ 08817", duration: "30 mins"},
+        {title: "costco", location: "405 Vineyard Rd, Edison, NJ 08817", duration: "30 mins"},
+        {title: "costco", location: "50 Vineyard Rd, Edison, NJ 08817", duration: "30 mins"}
     ]
 
     const [org, setOrg] = useState("")
