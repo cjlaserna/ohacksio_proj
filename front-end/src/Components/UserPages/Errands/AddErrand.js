@@ -41,8 +41,10 @@ const AddErrand = ({modifyShowAddPage, contentArray, modifyContentArray, modifyV
         modifyContentArray(temp_1);
 
         const userToken = window.localStorage.getItem("token")
-        
-        axios.post("http://localhost:3001/update", {
+        console.log("one two three four")
+        console.log(runID)
+        console.log(temp_1)
+        axios.post("http://localhost:3001/updated", {
             _id: runID, 
             run: temp_1,
         })
@@ -61,17 +63,17 @@ const AddErrand = ({modifyShowAddPage, contentArray, modifyContentArray, modifyV
             console.log(contentArray[i]);
             console.log("Bruh");
             console.log(contentArray.destination_type);
-            if (contentArray[i].destination_type === "start") {
-                options_temp.splice(0, 1);
-            }
-            if (contentArray[i].destination_type === "end") {
-                options_temp.splice(1, 1);
-            }
+           // if (contentArray[i].destination_type === "start") {
+             //   options_temp.splice(0, 1);
+            //}
+           // //f (contentArray[i].destination_type === "end") {
+            //    options_temp.splice(1, 1);
+           // }
         }
 
         console.log(options_temp);
 
-        setOptions(options_temp);
+       // setOptions(options_temp);
     }, [contentArray]);
     // const destination_type_finder = () => {
 

@@ -39,7 +39,6 @@ const sendVerificationEmail = async (verificationToken, userEmail)=>{
         const transport = nodemailer.createTransport({service: 'gmail', auth: {type: 'OAuth2', user: 'vercode123@gmail.com', clientId: clientID, clientSecret : clientSecret, refreshToken: refreshToken, accessToken: accessToken}});  
         const options = {from: '{ADD NAME} verification code <vercode123@gmail.com>', to: userEmail, subject: "Verification Code", text: verificationToken};
         const result = transport.sendMail(options);
-        console.log(result)
     }
     catch (error){
         return error
@@ -65,9 +64,7 @@ app.post("/login", async (req, res) =>{  //check if an account exists
 
 app.post ('/signup', async(req, res) =>{
     const user = req.body.user;
-    console.log(user)
     const user2 = new UserModel({username: user.username, password: user.password, email: user.email})
-    console.log(user2)
     await user2.save();
     res.send("registered user");
 })
@@ -77,13 +74,11 @@ app.post('/register', async (req, res) =>{//authenticating and fetching user log
     const password = req.body.password;
     const email = req.body.email;
     badToken = badTokenGen(5);
-    console.log(badToken);
     UserModel.find({email: email}, (err, result) =>{
         if(result==0)
         {
             var seconds =Math.floor(Date.now()/1000);
             badToken+=seconds.toString(36);
-            console.log(badToken)
             sendVerificationEmail(badToken, email);
             const user = new UserModel({username: username, password: password, email: email, verCode:badToken});
             res.send({user})
@@ -95,12 +90,18 @@ app.post('/register', async (req, res) =>{//authenticating and fetching user log
 });
 
 app.post("/runID", async (req, res)=>{ // fetching data from frontend
-    console.log("hope this runs")
     const _id = req.body._id;
-    console.log(_id)
     let ph = "god"
     await UserModel.findById(_id, async (err, uModel)=>{
+        if(uModel==null)
+        {
+            res.send({})
+        }
         await RunModel.findById(uModel.current_run  , async (err, rModel)=>{
+            if(rModel==null)
+            {
+                res.send({})
+            }
             res.send(rModel)
         });
     });
@@ -109,7 +110,6 @@ app.post("/runID", async (req, res)=>{ // fetching data from frontend
 
 
 app.post("/insert", async (req, res)=>{ // fetching data from frontend
-    console.log("i hate aditya shelke")
     const createdBy = req.body.createdBy;
     const run = req.body.run;
     const Run = RunModel({createdBy:createdBy, run:run})
@@ -122,7 +122,7 @@ app.post("/insert", async (req, res)=>{ // fetching data from frontend
     }
 }); 
 
-app.put("/update", async (req, res)=>{ // fetching data from frontend
+app.put("/updated", async (req, res)=>{ // fetching data from frontend
     const run = req.body.run;
     const _id = req.body._id;
     console.log("please")

@@ -35,7 +35,7 @@ const Errands = () => {
             modifyContentArray(response.data.run);
             modifyRunID(response.data._id);
         });
-
+        
     }, []);
 
     const showAddComponent = () => {
