@@ -40,10 +40,16 @@ const Errands = () => {
     const [visible, modifyVisible] = useState("errands_container_overlay_invisible");
     const [idCounter, modifyidCounter] = useState(0);
     const [newErrandObject, modifyNewErrandObject] = useState([]);
+
+    // console.log("Obama");
+    // modifyContentArray(AllData.current_run);
+    // console.log(AllData.current_run);
+    // console.log(AllData);
+    // console.log(contentArray);
     
     useEffect(() => {
         console.log("Hello Snake");
-        modifyContentArray(AllData.clients[0].current_run);
+        modifyContentArray(AllData.current_run);
     }, []);
 
     const showAddComponent = () => {
@@ -74,7 +80,7 @@ const Errands = () => {
                 <div className = "adder_1">
                     <div className = "errands_container_overlay_add_outer">
                         <div className = "errands_container_overlay_add_inner">
-                            {showAddPage ? <AddErrand modifyContentArray = {modifyContentArray} contentArray = {contentArray} /> : <div></div>}
+                            {showAddPage ? <AddErrand modifyShowAddPage = {modifyShowAddPage} contentArray = {contentArray} modifyContentArray = {modifyContentArray} modifyVisible = {modifyVisible}/> : <div></div>}
                         </div>
                     </div>
                 </div>
