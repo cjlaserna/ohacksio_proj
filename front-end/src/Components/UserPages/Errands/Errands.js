@@ -74,7 +74,7 @@ const Errands = () => {
                 <div className = "adder_1">
                     <div className = "errands_container_overlay_add_outer">
                         <div className = "errands_container_overlay_add_inner">
-                            {showAddPage ? <AddErrand /> : <div></div>}
+                            {showAddPage ? <AddErrand modifyContentArray = {modifyContentArray} contentArray = {contentArray} /> : <div></div>}
                         </div>
                     </div>
                 </div>

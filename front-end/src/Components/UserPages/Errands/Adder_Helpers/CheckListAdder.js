@@ -1,9 +1,9 @@
 import React from 'react'
 
-const CheckListAdder = () => {
+const CheckListAdder = ({checkListType, setCheckListType}) => {
     return (
         <div>
-            
+            <p>Hello World</p>
         </div>
     )
 }
